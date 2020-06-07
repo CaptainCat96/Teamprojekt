@@ -1,6 +1,4 @@
-
-Syntax für Exercises:
-;Frage1:Welcher englische Begriff passt zum Wort "Säulendiagramm"
+Frage1:Welcher englische Begriff passt zum Wort "Säulendiagramm"
 ;Auswahl1:barchart,column,table,curve
 ;Antwort1:barchart
 
