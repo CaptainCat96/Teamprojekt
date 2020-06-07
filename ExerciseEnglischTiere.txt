@@ -1,6 +1,4 @@
-
-Syntax für Exercises:
-;Frage1:Welcher englische Begriff passt zum Wort "Frosch"
+Frage1:Welcher englische Begriff passt zum Wort "Frosch"
 ;Auswahl1:toad,frog,snake,pike
 ;Antwort1:frog
 
