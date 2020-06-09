@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.JLabel;
 import java.awt.Toolkit;
+
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JRadioButton;
 import javax.swing.JToggleButton;
@@ -24,7 +26,11 @@ public class GameDesign extends JFrame {
 	private JRadioButton btnTree;
 	private JRadioButton btnRabbit;
 	private JRadioButton btnStreet;
+	private JRadioButton btnPhone;
+	private JRadioButton btnPencil;
+	private JRadioButton btnHouse;
 	private JLabel label;
+	private ButtonGroup bg = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -71,31 +77,37 @@ public class GameDesign extends JFrame {
 		btnTree.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));
 		btnTree.setBounds(39, 163, 89, 23);
 		contentPane.add(btnTree);
+		bg.add(btnTree);
 		
 		btnRabbit = new JRadioButton("rabbit");
 		btnRabbit.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));
 		btnRabbit.setBounds(160, 163, 89, 23);
 		contentPane.add(btnRabbit);
+		bg.add(btnRabbit);
 		
 		btnStreet = new JRadioButton("street");
 		btnStreet.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));
 		btnStreet.setBounds(278, 164, 89, 23);
 		contentPane.add(btnStreet);
+		bg.add(btnStreet);
 		
-		JRadioButton rdbtnPhone = new JRadioButton("phone ");
-		rdbtnPhone.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));
-		rdbtnPhone.setBounds(39, 130, 89, 23);
-		contentPane.add(rdbtnPhone);
+		btnPhone = new JRadioButton("phone");
+		btnPhone.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));
+		btnPhone.setBounds(39, 130, 89, 23);
+		contentPane.add(btnPhone);
+		bg.add(btnPhone);
 		
-		JRadioButton rdbtnPencil = new JRadioButton("pencil");
-		rdbtnPencil.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));
-		rdbtnPencil.setBounds(160, 130, 89, 23);
-		contentPane.add(rdbtnPencil);
+		btnPencil = new JRadioButton("pencil");
+		btnPencil.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));
+		btnPencil.setBounds(160, 130, 89, 23);
+		contentPane.add(btnPencil);
+		bg.add(btnPencil);
 		
-		JRadioButton rdbtnHouse = new JRadioButton("house");
-		rdbtnHouse.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));
-		rdbtnHouse.setBounds(278, 130, 89, 23);
-		contentPane.add(rdbtnHouse);
+		btnHouse = new JRadioButton("house");
+		btnHouse.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));
+		btnHouse.setBounds(278, 130, 89, 23);
+		contentPane.add(btnHouse);
+		bg.add(btnHouse);
 		
 		JButton btnNext = new JButton("Next");
 		btnNext.setFont(new Font("Yu Gothic UI Light", Font.BOLD, 12));
