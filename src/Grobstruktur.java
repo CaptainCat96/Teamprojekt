@@ -11,7 +11,7 @@ interface GrobStruktur{
 	public void showHighscoreLayout(boolean b);
 	public void showErrungsenschaftenlayot(boolean b);
 	//Hilfmethoden
-	public void loadTxtFile(File inputFile);
+	public void loadTxtFile(String path);
 	//Methoden
 	public void loadProfile(File inputFile);
 	public void saveProfile(File inputFile);
