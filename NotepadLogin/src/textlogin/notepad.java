@@ -19,13 +19,9 @@ import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 
-/**
- *
- * @author Admin
- */
 public class notepad extends javax.swing.JFrame {
 
-    File f = new File("C:\\Users\\berka\\Desktop\\Teamprojekt");   // Pfad einfügen 
+    File f = new File("C:\\Users\\berka\\Desktop\\Teamprojekt");   // Pfad einfÃ¼gen 
     int ln;
     String Username,Password,Email;
     /**
