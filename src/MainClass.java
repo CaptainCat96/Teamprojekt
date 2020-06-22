@@ -211,11 +211,11 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		setBounds(100, 100, 708, 512);
 		PanelStartmenu.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(PanelStartmenu);
-		PanelStartmenu.setLayout(null);
 
 		btnZumSpiel = new JButton("Zum Spiel");
-		btnZumSpiel.setBounds(289, 189, 104, 23);
+		btnZumSpiel.setBounds(289, 184, 104, 23);
 		btnZumSpiel.addActionListener(this);
+		PanelStartmenu.setLayout(null);
 		PanelStartmenu.add(btnZumSpiel);
 
 		btnDeinProfil = new JButton("Dein Profil");
@@ -229,14 +229,14 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		PanelStartmenu.add(btnEinstellungen);
 
 		JRadioButton rdbtnTonAus = new JRadioButton("Ton aus");
-		rdbtnTonAus.setBounds(302, 443, 109, 23);
+		rdbtnTonAus.setBounds(302, 421, 109, 23);
 		PanelStartmenu.add(rdbtnTonAus);
 
 		JLabel lblLetsLearn = new JLabel("Let's Learn !");
+		lblLetsLearn.setBounds(247, 33, 226, 73);
 		lblLetsLearn.setIcon(
 				new ImageIcon("C:\\Users\\berka\\eclipse-workspace\\Teamprojekt\\src\\icons8-erinnerung-48.png"));
 		lblLetsLearn.setFont(new Font("Yu Gothic Light", Font.PLAIN, 25));
-		lblLetsLearn.setBounds(247, 33, 226, 73);
 		PanelStartmenu.add(lblLetsLearn);
 	}
 
@@ -251,10 +251,10 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 	public void GameWindow() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\levin\\Downloads\\icons8-erinnerung-48.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 500, 400);
 
 		ButtonBack = new JButton("Back");
-		ButtonBack.setBounds(190, 79, 59, 20);
+		ButtonBack.setBounds(190, 79, 49, 20);
 		ButtonBack.addActionListener(this);
 		PanelGame.add(ButtonBack);
 		bg.add(ButtonBack);
@@ -267,7 +267,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		txtWelchesWortIst.setIcon(new ImageIcon("C:\\Users\\levin\\Downloads\\icons8-erinnerung-48.png"));
 		txtWelchesWortIst.setFont(new Font("Yu Gothic UI Light", Font.BOLD, 13));
 		txtWelchesWortIst.setText("Welches Wort ist die richtige \u00DCbersetzung f\u00FCr ...");
-		txtWelchesWortIst.setBounds(39, 30, 317, 39);
+		txtWelchesWortIst.setBounds(39, 30, 500, 39);
 		PanelGame.add(txtWelchesWortIst);
 		/**
 		 * 
