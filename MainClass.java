@@ -73,12 +73,22 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		MainClass testRun = new MainClass();
 		// testRun.loadTxtFile("src/Lerneinheiten/ExerciseBusinessEnglisch.txt");
 		// debug
+		/**
+		 * testRun.showArray(testRun.Antworten); testRun.showArray(testRun.Fragen);
+		 * testRun.tfFrage.setText(testRun.Fragen[0]);
+		 * testRun.tfAntwort.setText(testRun.Antworten[0]);
+		 * testRun.tfAuswahl1.setText(testRun.AntwortAlternativen[0][0]);
+		 * testRun.tfAuswahl2.setText(testRun.AntwortAlternativen[0][1]);
+		 * testRun.tfAuswahl3.setText(testRun.AntwortAlternativen[0][2]);
+		 * testRun.tfAuswahl4.setText(testRun.AntwortAlternativen[0][3]);
+		 * testRun.showArray(testRun.AntwortAlternativen);
+		 */
 	}
-	
+
 	/**
 	 * ##################################################################
 	 * ##################################################################
-	 * Hilfsmethoden für die GUI
+	 * Hilfsmethoden fï¿½r die GUI
 	 */
 
 	@Override
@@ -166,70 +176,25 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 	}
 
 	int aktuelleFrageIndex = 0;
-	int maxAnzahlFragen=maxAnzahl;
-	String userAntwort,Lösung;
-	//Variablen für Highscore statistiken
-	int AnzahlFalscheAntworten=0;
-	int AnzahlRichtigeAntworten=0;
-	
+	int maxAnzahlFragen;
+
 	public void GameWindow_nextQuestion() {
 		maxAnzahlFragen = getFirstFreeIndex(Fragen);
 		if (aktuelleFrageIndex >= maxAnzahlFragen) {
 			hideAllPanels();
 			showHighScore();
 		}
-		
-		//Highscore
-		if(btnTree.isSelected()) {
-			userAntwort=btnTree.getText();
-		}
-		if(btnHouse.isSelected()) {
-			userAntwort=btnHouse.getText();
-		}
-		if(btnStreet.isSelected()) {
-			userAntwort=btnStreet.getText();
-		}
-		if(btnPhone.isSelected()) {
-			userAntwort=btnPhone.getText();
-		}
-		//Bugfix: keine Antwort ausgewählt
-		if(btnTree.isSelected()==false && btnHouse.isSelected()==false && btnStreet.isSelected()==false && btnPhone.isSelected()==false) {
-			userAntwort="keine Antowrt ausgewählt!";
-		}
-		//Bei Init überspringen
-		if(aktuelleFrageIndex!=0) {
-			Lösung = (String)Antworten[aktuelleFrageIndex-1];
-			System.out.println("Antwort ist: "+userAntwort);
-			System.out.println("Lösung ist :"+Lösung);
-			//Progress bar Aktualisieren
-			progressBar.setMaximum(maxAnzahlFragen);
-			progressBar.setValue(aktuelleFrageIndex);
-			//Falls Frage falsch beantwortet
-			if(userAntwort.equals(Lösung)==false) {
-				AnzahlFalscheAntworten++;
-				lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war: "+Lösung);
-				//lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war:"+Lösung+"(deine Antwort: "+userAntwort+")");
-			}
-			//Falls Frage richtig beantwortet
-			if(userAntwort.equals(Lösung)) {
-				AnzahlRichtigeAntworten++;
-				lblStatusLetzteAntwort.setText("Richtig!");
-			}
-		}
-		
+		System.out.println("Nï¿½chste Frage");
+
 		btnTree.setText(AntwortAlternativen[aktuelleFrageIndex][0]);
 		btnHouse.setText(AntwortAlternativen[aktuelleFrageIndex][1]);
 		btnStreet.setText(AntwortAlternativen[aktuelleFrageIndex][2]);
 		btnPhone.setText(AntwortAlternativen[aktuelleFrageIndex][3]);
-		
 		btnPencil.setVisible(false);
 		btnRabbit.setVisible(false);
-		
 		txtWelchesWortIst.setText(Fragen[aktuelleFrageIndex]);
 		FragenVerbleibend.setText(aktuelleFrageIndex + " von " + maxAnzahlFragen);
-		
 		aktuelleFrageIndex++;
-		System.out.println("Nächste Frage");
 	}
 
 	/**
@@ -246,11 +211,11 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		setBounds(100, 100, 708, 512);
 		PanelStartmenu.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(PanelStartmenu);
+		PanelStartmenu.setLayout(null);
 
 		btnZumSpiel = new JButton("Zum Spiel");
-		btnZumSpiel.setBounds(289, 184, 104, 23);
+		btnZumSpiel.setBounds(289, 189, 104, 23);
 		btnZumSpiel.addActionListener(this);
-		PanelStartmenu.setLayout(null);
 		PanelStartmenu.add(btnZumSpiel);
 
 		btnDeinProfil = new JButton("Dein Profil");
@@ -264,14 +229,14 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		PanelStartmenu.add(btnEinstellungen);
 
 		JRadioButton rdbtnTonAus = new JRadioButton("Ton aus");
-		rdbtnTonAus.setBounds(302, 421, 109, 23);
+		rdbtnTonAus.setBounds(302, 443, 109, 23);
 		PanelStartmenu.add(rdbtnTonAus);
 
 		JLabel lblLetsLearn = new JLabel("Let's Learn !");
-		lblLetsLearn.setBounds(247, 33, 226, 73);
 		lblLetsLearn.setIcon(
 				new ImageIcon("C:\\Users\\berka\\eclipse-workspace\\Teamprojekt\\src\\icons8-erinnerung-48.png"));
 		lblLetsLearn.setFont(new Font("Yu Gothic Light", Font.PLAIN, 25));
+		lblLetsLearn.setBounds(247, 33, 226, 73);
 		PanelStartmenu.add(lblLetsLearn);
 	}
 
@@ -282,19 +247,14 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 	private JLabel FragenVerbleibend;
 	private ButtonGroup bg = new ButtonGroup();
 	JButton ButtonBack, btnNext;
-	JProgressBar progressBar = new JProgressBar();
-	/**
-	 * war letzte Antwort richtig oder falsch?
-	 */
-	JLabel lblStatusLetzteAntwort = new JLabel();
-	
+
 	public void GameWindow() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\levin\\Downloads\\icons8-erinnerung-48.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 500, 400);
+		setBounds(100, 100, 450, 300);
 
 		ButtonBack = new JButton("Back");
-		ButtonBack.setBounds(190, 79, 49, 20);
+		ButtonBack.setBounds(190, 79, 59, 20);
 		ButtonBack.addActionListener(this);
 		PanelGame.add(ButtonBack);
 		bg.add(ButtonBack);
@@ -307,7 +267,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		txtWelchesWortIst.setIcon(new ImageIcon("C:\\Users\\levin\\Downloads\\icons8-erinnerung-48.png"));
 		txtWelchesWortIst.setFont(new Font("Yu Gothic UI Light", Font.BOLD, 13));
 		txtWelchesWortIst.setText("Welches Wort ist die richtige \u00DCbersetzung f\u00FCr ...");
-		txtWelchesWortIst.setBounds(39, 30, 500, 39);
+		txtWelchesWortIst.setBounds(39, 30, 317, 39);
 		PanelGame.add(txtWelchesWortIst);
 		/**
 		 * 
@@ -315,7 +275,6 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		 * Font.BOLD, 13)); txtBaum.setText("Baum ?"); txtBaum.setBounds(190, 79, 59,
 		 * 20); PanelGame.add(txtBaum);
 		 */
-
 
 		btnTree = new JRadioButton("tree");
 		btnTree.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));
@@ -363,18 +322,12 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		FragenVerbleibend.setFont(new Font("Yu Gothic UI", Font.PLAIN, 11));
 		FragenVerbleibend.setBounds(378, 219, 46, 14);
 		PanelGame.add(FragenVerbleibend);
-		
-		progressBar.setBounds(0, 250, 434, 14);
-		PanelGame.add(progressBar);
-		
-		lblStatusLetzteAntwort.setBounds(39, 0, 346, 28);
-		PanelGame.add(lblStatusLetzteAntwort);
-
 	}
 
 	/**
 	 * veraltet
 	 */
+	
 	public void showStartScreenOld() {
 		JLabel lblLernprogrammVersion = new JLabel("Lernprogramm Version 1.0");
 		lblLernprogrammVersion.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -421,8 +374,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		setContentPane(PanelHighscore);
 		PanelHighscore.setLayout(null);
 
-		JLabel lblHierIstDein = new JLabel("Hier ist dein Highscore: "+AnzahlRichtigeAntworten*10);
-
+		JLabel lblHierIstDein = new JLabel("Hier ist dein Highscore !");
 		lblHierIstDein.setIcon(
 				new ImageIcon("C:\\Users\\beytullah\\eclipse-workspace\\Teamprojekt\\src\\icons8-erinnerung-48.png"));
 		lblHierIstDein.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 25));
@@ -434,8 +386,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		lblDuHastBisher.setBounds(146, 81, 135, 56);
 		PanelHighscore.add(lblDuHastBisher);
 
-		JLabel lblAnzahl = new JLabel(AnzahlRichtigeAntworten+" W\u00F6rter");
-
+		JLabel lblAnzahl = new JLabel("XY W\u00F6rter");
 		lblAnzahl.setFont(new Font("Yu Gothic UI Light", Font.BOLD, 18));
 		lblAnzahl.setBounds(156, 112, 102, 56);
 		PanelHighscore.add(lblAnzahl);
@@ -445,8 +396,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		lblKorrektBeantwortet.setBounds(92, 158, 252, 25);
 		PanelHighscore.add(lblKorrektBeantwortet);
 
-		JLabel lblMaximalKannst = new JLabel("maximal kannst "+maxAnzahlFragen*10+" Punkte mit den geladenen Vokabelpaketen erreichen.");
-		
+		JLabel lblMaximalKannst = new JLabel("maximal kannst 45 Punkte mit den geladenen Vokabelpaketen erreichen.");
 		lblMaximalKannst.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));
 		lblMaximalKannst.setBounds(60, 236, 350, 14);
 		PanelHighscore.add(lblMaximalKannst);
@@ -458,7 +408,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		PanelHighscore.add(btnZurckZumMen);
 	}
 
-	JButton btnStart = new JButton("Start");;
+	JButton btnStart = new JButton("Start");
 
 	@Override
 	public void showStartScreen(boolean b) {
@@ -562,7 +512,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		label.setBounds(336, 23, 48, 48);
 		PanelSpielerprofil.add(label);
 
-		JButton BackButtonSpielerProfil = new JButton("<--  Back ");
+		BackButtonSpielerProfil = new JButton("<--  Back ");
 		BackButtonSpielerProfil.setBounds(10, 227, 89, 23);
 		PanelSpielerprofil.add(BackButtonSpielerProfil);
 		BackButtonSpielerProfil.addActionListener(this);
@@ -710,7 +660,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 	}
 
 	/**
-	 * Löscht alle zeichenumbrüche und leerzeicehn aus einem String Zeilenumbruch:
+	 * Lï¿½scht alle zeichenumbrï¿½che und leerzeicehn aus einem String Zeilenumbruch:
 	 * |13|10 Zeilenumbruch Zeerzeile: |13|10|13|10 58 = ":"
 	 * 
 	 * @param input
@@ -719,10 +669,6 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		// Zeilenumbruch entfernen
 		input = input.replace("\n", ":").replace("\r", "");
 		input = input.replace("::", ":");
-		input = input.replace("Ã¶", "ö");
-		input = input.replace("Ã¤", "ä");
-		//Assci Fehler
-
 		// System.out.println("input: "+input);
 
 		return input;
@@ -807,7 +753,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 	}
 
 	/**
-	 * Der Pfad er übergeben wird darf kein Lokaler Pfad sein Falsch:
+	 * Der Pfad er ï¿½bergeben wird darf kein Lokaler Pfad sein Falsch:
 	 * "C:\\Users\\henri\\eclipse-workspace\\TeamprojektLernprogramm\\src\\Lerneinheiten\\Exercise1"
 	 * 
 	 * Er muss zum Projekt Relativ sein, ausgehend von Source ordner Richtig:
@@ -819,7 +765,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		String input = "";
 		try {
 			FileInputStream loadFile = new FileInputStream(inputFile);
-			// FileInputStream ließt immer ints
+			// FileInputStream lieï¿½t immer ints
 			int timeout_after_iteration = 10000;
 			int i = 0;
 			while (loadFile.available() > 0) {
@@ -844,7 +790,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		System.out.println("Loading Successful:");
 		System.out.println(input);
 		// System.out.println("##########################");
-		// ungewollte zeichen und zeilenumbrüche filtern
+		// ungewollte zeichen und zeilenumbrï¿½che filtern
 		input = CleanData(input);
 		// System.out.println("Cleaned Data :" + input);
 		matchWord_and_save(input);
