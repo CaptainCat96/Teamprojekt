@@ -52,7 +52,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 	 * AntwortAlternativen[Kategorie][Auswahl(Einzelne Antworten)]
 	 */
 	String[][] AntwortAlternativen = new String[maxAnzahl][maxAntwortAlternativen];
-	private JTextField tfFrage;
+	private JTextField tfablbvlb;
 	private JTextField tfAuswahl1;
 	private JTextField tfAntwort;
 	private JTextField tfAuswahl3;
