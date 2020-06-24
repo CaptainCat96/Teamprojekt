@@ -241,7 +241,13 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		aktuelleFrageIndex++;
 		System.out.println("Nächste Frage");
 	}
-
+	/**
+	 * irgend was
+	 */
+	public void test() {
+		int a=0;
+	}
+	
 	/**
 	 * ##################################################################
 	 * ################################################################## GUI-Seiten
@@ -284,7 +290,7 @@ public class MainClass extends JFrame implements GrobStruktur, ActionListener {
 		lblLetsLearn.setFont(new Font("Yu Gothic Light", Font.PLAIN, 25));
 		PanelStartmenu.add(lblLetsLearn);
 	}
-
+	
 	JPanel PanelGame = new JPanel();
 	private JPanel contentPane;
 	private JLabel txtWelchesWortIst, txtBaum;
