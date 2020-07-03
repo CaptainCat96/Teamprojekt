@@ -1,14 +1,14 @@
-Frage1:Welches Wort ist die Übersetzung für "SÃ¤ulendiagramm"?
+Frage1:Welches Wort ist die Übersetzung für "Tabelle"?
 Auswahl1:barchart,column,table,curve
-Antwort1:barchart
+Antwort1:table
 
 Frage2:Welches Wort ist die Übersetzung für "sinken"?
 Auswahl2:fluctuate,remain,decrease,increase
 Antwort2:decrease
 
-Frage3:Welches Wort ist die Übersetzung für "VerspÃ¤tung"?
-Auswahl3:refund,domestic,delay,late
-Antwort3:delay
+Frage3:Welches Wort ist die Übersetzung für "Anlage"?
+Auswahl3:refund,domestic,delay,investment
+Antwort3:investment
 
 Frage4:Welches Wort ist die Übersetzung für "Steuer"?
 Auswahl4:loan,investment,rate,tax

@@ -1,0 +1,59 @@
+Frage1:Welches Wort ist die Übersetzung für "Fuss"?
+Auswahl1:ayak,merhaba,kapi,yorgan
+Antwort1:ayak
+
+Frage2:Welches Wort ist die Übersetzung für "Hallo"?
+Auswahl2:kulak,koltuk,merhaba,yengec
+Antwort2:merhaba
+
+Frage3:Welches Wort ist die Übersetzung für "Nein"?
+Auswahl3:yemek,burun,hayir,evet
+Antwort3:hayir
+
+Frage4:Welches Wort ist die Übersetzung für "Haus"?
+Auswahl4:yatak,araba,köpek,ev
+Antwort4:ev
+
+Frage5:Welches Wort ist die Übersetzung von "Auge"?
+Auswahl5:el,göz,cene,sac
+Antwort5:göz
+
+Frage6:Welches Wort ist die Übersetzung für "Buch"?
+Auswahl6:kitap,corap,meme,karton
+Antwort6:kitap
+
+Frage7:Welches Wort ist die Übersetzung für "Danke"?
+Auswahl7:lütfen,tesekür,koku,maymun
+Antwort7:tesekür
+
+Frage8:Welches Wort ist die Übersetzung für "Rechnung"?
+Auswahl8:cikis,tuvalet,hesap,boru
+Antwort8:hesap
+
+Frage9:Welches Wort ist die Übersetzung für "Strafe"?
+Auswahl9:ceza,pantilon,pilav,nohut
+Antwort9:ceza
+
+Frage10:Welches Wort ist die Übersetzung für "sehen"?
+Auswahl10:görmek,calmak,oynamak,kusmak
+Antwort10:görmek
+
+Frage11:Welches Wort ist die Übersetzung für "Montag"?
+Auswahl11:sali,pazartesi,cuma,üc
+Antwort11:pazartesi
+
+Frage12:Welches Wort ist die Übersetzung für "sagen"?
+Auswahl12:demek,cok,yorgun,ufak
+Antwort12:demek
+
+Frage13:Welches Wort ist die Übersetzung für "Ich"?
+Auswahl13:sen,ben,onlar,biz
+Antwort13:ben
+
+Frage14:Welches Wort ist die Übersetzung für "Werbung"?
+Auswahl14:gazete,pastirma,dolmus,reklam
+Antwort14:reklam
+
+Frage15:Welches Wort ist die Übersetzung für "machen"?
+Auswahl15:yapmak,görmek,uzak,iyi
+Antwort15:yapmak
