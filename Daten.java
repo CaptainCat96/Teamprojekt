@@ -3,23 +3,23 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 /**
- * Beeinhaltet und Lädt Daten für das Spiel
+ * Beeinhaltet und Lï¿½dt Daten fï¿½r das Spiel
  * @author henri
  *
  */
 public class Daten {
 	//Neue Variablen
 		int maxAnzahlLerneinheiten=100;
-		String[] VerfügbareLerneinheiten;
+		String[] geladeneLerneinheiten;
 	public Daten() {
 		/**
 		 * Test Data
 		 */
-		VerfügbareLerneinheiten = new String[maxAnzahlLerneinheiten];
-		VerfügbareLerneinheiten[0]="Englisch 1";
-		VerfügbareLerneinheiten[1]="Englisch 2";
-		VerfügbareLerneinheiten[2]="Spanisch 1";
-		VerfügbareLerneinheiten[3]="Italienisch 1";
+		geladeneLerneinheiten = new String[maxAnzahlLerneinheiten];
+		geladeneLerneinheiten[0]="Englisch 1";
+		geladeneLerneinheiten[1]="Englisch 2";
+		geladeneLerneinheiten[2]="Spanisch 1";
+		geladeneLerneinheiten[3]="Italienisch 1";
 	}
 	
 	// Variablen vor Load Txt
@@ -91,7 +91,7 @@ public class Daten {
 	}
 
 	/**
-	 * Löscht alle zeichenumbrüche und leerzeicehn aus einem String Zeilenumbruch:
+	 * Lï¿½scht alle zeichenumbrï¿½che und leerzeicehn aus einem String Zeilenumbruch:
 	 * |13|10 Zeilenumbruch Zeerzeile: |13|10|13|10 58 = ":"
 	 * 
 	 * @param input
@@ -100,8 +100,8 @@ public class Daten {
 		// Zeilenumbruch entfernen
 		input = input.replace("\n", ":").replace("\r", "");
 		input = input.replace("::", ":");
-		input = input.replace("Ã¶", "ö");
-		input = input.replace("Ã¤", "ä");
+		input = input.replace("Ã¶", "ï¿½");
+		input = input.replace("Ã¤", "ï¿½");
 		// Assci Fehler
 
 		// System.out.println("input: "+input);
@@ -188,7 +188,7 @@ public class Daten {
 	}
 
 	/**
-	 * Der Pfad er übergeben wird darf kein Lokaler Pfad sein Falsch:
+	 * Der Pfad er ï¿½bergeben wird darf kein Lokaler Pfad sein Falsch:
 	 * "C:\\Users\\henri\\eclipse-workspace\\TeamprojektLernprogramm\\src\\Lerneinheiten\\Exercise1"
 	 * 
 	 * Er muss zum Projekt Relativ sein, ausgehend von Source ordner Richtig:
@@ -201,7 +201,7 @@ public class Daten {
 		try {
 			@SuppressWarnings("resource")
 			FileInputStream loadFile = new FileInputStream(inputFile);
-			// FileInputStream ließt immer ints
+			// FileInputStream lieï¿½t immer ints
 			int timeout_after_iteration = 10000;
 			int i = 0;
 			while (loadFile.available() > 0) {
@@ -226,7 +226,7 @@ public class Daten {
 		System.out.println("Loading Successful:");
 		System.out.println(input);
 		// System.out.println("##########################");
-		// ungewollte zeichen und zeilenumbrüche filtern
+		// ungewollte zeichen und zeilenumbrï¿½che filtern
 		input = CleanData(input);
 		// System.out.println("Cleaned Data :" + input);
 		matchWord_and_save(input);
