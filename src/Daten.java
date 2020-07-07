@@ -2,24 +2,36 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 /**
- * Beeinhaltet und L�dt Daten f�r das Spiel
+ * Beeinhaltet und Laedt Daten fuer das Spiel
  * @author henri
  *
  */
 public class Daten {
 	//Neue Variablen
 		int maxAnzahlLerneinheiten=100;
-		String[] VorhandeneLerneinheiten;
+		
+		/**
+		 * Map mit dem Namen der Lerneinheit und dem Filenamen
+		 */
+		Map<String,String> VerfuegbareLerneinheiten = new HashMap<String,String>();
+		
 	public Daten() {
 		/**
 		 * Test Data
 		 */
-		VorhandeneLerneinheiten = new String[maxAnzahlLerneinheiten];
-		VorhandeneLerneinheiten[0]="Englisch 1";
-		VorhandeneLerneinheiten[1]="Englisch 2";
-		VorhandeneLerneinheiten[2]="Spanisch 1";
-		VorhandeneLerneinheiten[3]="Italienisch 1";
+
+		VerfuegbareLerneinheiten.put("1Englisch","ExerciseEnglischTiere.txt"); 
+		VerfuegbareLerneinheiten.put("2 Englisch","ExerciseBusinessEnglisch.txt");
+		VerfuegbareLerneinheiten.put("3 Spanisch","ExerciseEspanolBasics.txt");
+		VerfuegbareLerneinheiten.put("4 Spanisch","ExerciseEspanolBasic2.txt");
+		VerfuegbareLerneinheiten.put("5 Türkisch","ExerciseTuerkishBasics.txt");
+		VerfuegbareLerneinheiten.put("6 Türkisch","ExerciseTuerkishBasics.txt2");
+		//VerfuegbareLerneinheiten[3]="Italienisch 1"; 
 	}
 	
 	// Variablen vor Load Txt
@@ -91,7 +103,7 @@ public class Daten {
 	}
 
 	/**
-	 * L�scht alle zeichenumbr�che und leerzeicehn aus einem String Zeilenumbruch:
+	 * LÃ¤scht alle zeichenumbrÃ¤che und leerzeicehn aus einem String Zeilenumbruch:
 	 * |13|10 Zeilenumbruch Zeerzeile: |13|10|13|10 58 = ":"
 	 * 
 	 * @param input
@@ -100,8 +112,8 @@ public class Daten {
 		// Zeilenumbruch entfernen
 		input = input.replace("\n", ":").replace("\r", "");
 		input = input.replace("::", ":");
-		input = input.replace("ö", "�");
-		input = input.replace("ä", "�");
+		input = input.replace("Ã¶", "Ã¤");
+		input = input.replace("Ã¤", "Ã¤");
 		// Assci Fehler
 
 		// System.out.println("input: "+input);
@@ -110,8 +122,8 @@ public class Daten {
 	}
 
 	/**
-	 * Erkennt ob es sich um Frage, Auswahl oder Antowort handelt und laed alle
-	 * Elemente ab ":" in die jewiligen Arrays
+	 * Erkennt ob es sich um Frage, Auswahl oder Antwort handelt und laed alle
+	 * Elemente ab ":" in die jeweiligen Arrays
 	 * 
 	 * @param inputWord
 	 */
@@ -148,6 +160,17 @@ public class Daten {
 		}
 	}
 
+	/**
+	 * Hole den Filename zu dem Namen einer Lerneinheit
+	 * 
+	 * @param einheitName Name der Lerneinheit
+	 * 
+	 * @return Der Filename zur Datei mit den Vokabeln
+	 */
+	public final String getFilenameForLerneinheit(String einheitName) {
+		return VerfuegbareLerneinheiten.get(einheitName);
+	}
+	
 	/**
 	 * Gibt ersten Freien Index des Arrays wieder als int
 	 * 
@@ -188,7 +211,16 @@ public class Daten {
 	}
 
 	/**
-	 * Der Pfad er �bergeben wird darf kein Lokaler Pfad sein Falsch:
+	 * Hole das Array mit den verfuegbaren Lerneinheiten
+	 * 
+	 * @return Das Array mit den Lerneinheiten
+	 */
+	public List<String> getLerneinheiten() {
+		return VerfuegbareLerneinheiten.keySet().stream().collect(Collectors.toList());
+	}
+	
+	/**
+	 * Der Pfad er Ã¤bergeben wird darf kein Lokaler Pfad sein Falsch:
 	 * "C:\\Users\\henri\\eclipse-workspace\\TeamprojektLernprogramm\\src\\Lerneinheiten\\Exercise1"
 	 * 
 	 * Er muss zum Projekt Relativ sein, ausgehend von Source ordner Richtig:
@@ -201,7 +233,7 @@ public class Daten {
 		try {
 			@SuppressWarnings("resource")
 			FileInputStream loadFile = new FileInputStream(inputFile);
-			// FileInputStream lie�t immer ints
+			// FileInputStream lieÃ¤t immer ints
 			int timeout_after_iteration = 10000;
 			int i = 0;
 			while (loadFile.available() > 0) {
@@ -214,11 +246,11 @@ public class Daten {
 				i++;
 			}
 		} catch (FileNotFoundException e) {
-			// e.printStackTrace();
-			// System.out.println("Datei wurde nicht gefunden!");
+			e.printStackTrace();
+			System.out.println("Datei wurde nicht gefunden!");
 			return;
 		} catch (IOException e) {
-			// System.out.println("Datei wurde nicht gefunden!");
+			System.out.println("Datei wurde nicht gefunden!");
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
 			return;
@@ -226,7 +258,7 @@ public class Daten {
 		System.out.println("Loading Successful:");
 		System.out.println(input);
 		// System.out.println("##########################");
-		// ungewollte zeichen und zeilenumbr�che filtern
+		// ungewollte zeichen und zeilenumbrueche filtern
 		input = CleanData(input);
 		// System.out.println("Cleaned Data :" + input);
 		matchWord_and_save(input);
