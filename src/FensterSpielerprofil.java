@@ -98,7 +98,7 @@ public class FensterSpielerprofil extends JFrame {
 			lblNewLabel.setBounds(34, 71, 203, 157);
 			contentPane.add(lblNewLabel);
 		}catch(Exception e) {
-			System.out.println("Profilbild nicht gefunden");
+			System.out.println("Profilbild nicht vorhanden");
 		}
 		
 		
