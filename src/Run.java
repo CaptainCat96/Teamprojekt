@@ -1,5 +1,4 @@
 import javax.swing.JFrame;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,7 +37,7 @@ public class Run extends JFrame implements ActionListener {
 	
 	public Run() {
 		
-		starte_FensterStartmenü();
+		starte_FensterStartmenu();
 	}
 	
 	public void setWindowDimension(int x1, int y1, int x2, int y2) {
@@ -58,16 +57,16 @@ public class Run extends JFrame implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// FensterStarmenü
-		if (e.getSource() == Startmenü.btnZumSpiel) {
+		// FensterStarmenï¿½
+		if (e.getSource() == Startmenu.btnZumSpiel) {
 			ResetSpiel();
 			starte_FensterSpiel();
-			Startmenü.dispose();
+			Startmenu.dispose();
 		}
-		if (e.getSource() == Startmenü.btnDeinProfil) {
+		if (e.getSource() == Startmenu.btnDeinProfil) {
 			starte_Spielerprofil();
 		}
-		if (e.getSource() == Startmenü.btnEinstellungen) {
+		if (e.getSource() == Startmenu.btnEinstellungen) {
 			starte_FensterEinstellungen();
 		}
 		// FensterSpiel
@@ -77,24 +76,24 @@ public class Run extends JFrame implements ActionListener {
 		if (e.getSource() == Spiel.buttonBack) {
 			Highscore.dispose();
 			Spiel.dispose();
-			starte_FensterStartmenü();
+			starte_FensterStartmenu();
 		}
 		// FensterSpielerprofil
 		if (e.getSource() == Spielerprofil.buttonback) {
-			Startmenü.dispose();
-			starte_FensterStartmenü();
+			Startmenu.dispose();
+			starte_FensterStartmenu();
 			;
 		}
 		// FensterHighscore
 		if (e.getSource() == Highscore.btnZurckZumMen) {
 			Highscore.dispose();
 			Spiel.dispose();
-			starte_FensterStartmenü();
+			starte_FensterStartmenu();
 		}
 		//FensterEinstellungen
 		if (e.getSource() == Einstellungen.buttonBack) {
 			Einstellungen.dispose();
-			starte_FensterStartmenü();
+			starte_FensterStartmenu();
 		}
 	}
 
@@ -103,18 +102,18 @@ public class Run extends JFrame implements ActionListener {
 	 * #############################################################################
 	 * ###### Fenster Logik
 	 */
-	FensterStartmenü Startmenü = new FensterStartmenü();
+	FensterStartmenu Startmenu = new FensterStartmenu();
 
-	public void starte_FensterStartmenü() {
+	public void starte_FensterStartmenu() {
 		// Load Layout
 
 		Startmenu.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
 		Startmenu.setVisible(true);
 		// ActionListener
-		Startmenü.btnZumSpiel.addActionListener(this);
-		Startmenü.btnDeinProfil.addActionListener(this);
-		Startmenü.btnEinstellungen.addActionListener(this);
-		Startmenü.rdbtnTonAus.addActionListener(this);
+		Startmenu.btnZumSpiel.addActionListener(this);
+		Startmenu.btnDeinProfil.addActionListener(this);
+		Startmenu.btnEinstellungen.addActionListener(this);
+		Startmenu.rdbtnTonAus.addActionListener(this);
 	}
 
 	FensterSpiel Spiel = new FensterSpiel();
@@ -165,8 +164,8 @@ public class Run extends JFrame implements ActionListener {
 	//Variablen
 	int aktuelleFrageIndex = 0;
 	int maxAnzahlFragen = daten.maxAnzahl;
-	String userAntwort, Lösung;
-	// Variablen für Highscore statistiken
+	String userAntwort, Antwort;
+	// Variablen fï¿½r Highscore statistiken
 	int AnzahlFalscheAntworten = 0;
 	int AnzahlRichtigeAntworten = 0;
 	public void GameWindow_nextQuestion() {
@@ -195,23 +194,23 @@ public class Run extends JFrame implements ActionListener {
 				&& Spiel.btnStreet.isSelected() == false && Spiel.btnPhone.isSelected() == false) {
 			userAntwort = "keine Antowrt ausgewï¿½hlt!";
 		}
-		// Bei Init überspringen
+		// Bei Init ï¿½berspringen
 		if (aktuelleFrageIndex != 0) {
-			Lösung = (String) daten.Antworten[aktuelleFrageIndex - 1];
+			Antwort = (String) daten.Antworten[aktuelleFrageIndex - 1];
 			System.out.println("Antwort ist: " + userAntwort);
-			System.out.println("Lösung ist :" + Lösung);
+			System.out.println("Antwort ist :" + Antwort);
 			// Progress bar Aktualisieren
 			Spiel.progressBar.setMaximum(maxAnzahlFragen);
 			Spiel.progressBar.setValue(aktuelleFrageIndex);
 			// Falls Frage falsch beantwortet
-			if (userAntwort.equals(Lösung) == false) {
+			if (userAntwort.equals(Antwort) == false) {
 				AnzahlFalscheAntworten++;
-				Spiel.lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war: " + Lösung);
-				// lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war:"+Lösung+"(deine
+				Spiel.lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war: " + Antwort);
+				// lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war:"+Antwort+"(deine
 				// Antwort: "+userAntwort+")");
 			}
 			// Falls Frage richtig beantwortet
-			if (userAntwort.equals(Lösung)) {
+			if (userAntwort.equals(Antwort)) {
 				AnzahlRichtigeAntworten++;
 				Spiel.lblStatusLetzteAntwort.setText("Richtig!");
 			}
@@ -225,7 +224,7 @@ public class Run extends JFrame implements ActionListener {
 		Spiel.txtWelchesWortIst.setText(daten.Fragen[aktuelleFrageIndex]);
 		Spiel.FragenVerbleibend.setText(aktuelleFrageIndex + " von " + maxAnzahlFragen);
 		aktuelleFrageIndex++;
-		System.out.println("Nächste Frage");
+		System.out.println("Nï¿½chste Frage");
 	}
 	/**
 	 * #############################################################################

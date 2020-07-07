@@ -91,12 +91,16 @@ public class FensterSpielerprofil extends JFrame {
 		progressBar_2.setValue(20);
 		progressBar_2.setMaximum(50);
 		contentPane.add(progressBar_2);
+		try {
+			lblNewLabel = new JLabel("");
+			Image image = new ImageIcon(this.getClass().getResource("Icon.png")).getImage();
+			lblNewLabel.setIcon(new ImageIcon(image));
+			lblNewLabel.setBounds(34, 71, 203, 157);
+			contentPane.add(lblNewLabel);
+		}catch(Exception e) {
+			System.out.println("Profilbild nicht gefunden");
+		}
 		
-		lblNewLabel = new JLabel("");
-		Image image = new ImageIcon(this.getClass().getResource("Icon.png")).getImage();
-		lblNewLabel.setIcon(new ImageIcon(image));
-		lblNewLabel.setBounds(34, 71, 203, 157);
-		contentPane.add(lblNewLabel);
 		
 	}
 }
