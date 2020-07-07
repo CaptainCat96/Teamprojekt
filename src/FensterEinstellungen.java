@@ -1,4 +1,4 @@
-mport java.awt.Toolkit;
+import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
