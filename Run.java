@@ -19,7 +19,7 @@ public class Run extends JFrame implements ActionListener {
 	 */
 	Daten daten = new Daten();
 	// Fenster einstellungen
-	int bblalalala = 0;
+	int WindowSizeX1 = 0;
 	int WindowSizeY1 = 0;
 	int WindowSizeX2 = 800;
 	int WindowSizeY2 = 800;
@@ -27,7 +27,7 @@ public class Run extends JFrame implements ActionListener {
 	 * Farbschema: Default,Schwarz, Blau, Rot
 	 */
 	public void ColorDesign() {
-		String selected="Default";
+		String Ausgewaehlt="Default";
 		Color Schwarz= new Color(0,0,0);
 		String Blau= "#1736E6";
 		String Rot= "#E30302";
@@ -106,7 +106,7 @@ public class Run extends JFrame implements ActionListener {
 
 	public void starte_FensterStartmenu() {
 		// Load Layout
-		Startmenu.setWindowDimension(bblalalala, WindowSizeY1, WindowSizeX2, WindowSizeY2);
+		Startmenu.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
 		Startmenu.setVisible(true);
 		// ActionListener
 		Startmenu.btnZumSpiel.addActionListener(this);
@@ -119,7 +119,7 @@ public class Run extends JFrame implements ActionListener {
 
 	public void starte_FensterSpiel() {
 		// Load Layout
-		Spiel.setWindowDimension(bblalalala, WindowSizeY1, WindowSizeX2, WindowSizeY2);
+		Spiel.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
 		Spiel.setVisible(true);
 		// ActionListener
 		Spiel.btnNext.addActionListener(this);
@@ -133,7 +133,7 @@ public class Run extends JFrame implements ActionListener {
 	FensterSpielerprofil Spielerprofil = new FensterSpielerprofil();
 
 	public void starte_Spielerprofil() {
-		Spielerprofil.setWindowDimension(bblalalala, WindowSizeY1, WindowSizeX2, WindowSizeY2);
+		Spielerprofil.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
 		Spielerprofil.setVisible(true);
 		// ActionListener
 		Spielerprofil.buttonback.addActionListener(this);
@@ -142,7 +142,7 @@ public class Run extends JFrame implements ActionListener {
 	FensterHighscore Highscore = new FensterHighscore();
 
 	public void starte_FensterHighscore() {
-		Highscore.setWindowDimension(bblalalala, WindowSizeY1, WindowSizeX2, WindowSizeY2);
+		Highscore.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
 		Highscore.setVisible(true);
 		// ActionListener
 		Highscore.btnZurckZumMen.addActionListener(this);
@@ -150,7 +150,7 @@ public class Run extends JFrame implements ActionListener {
 	
 	FensterEinstellungen Einstellungen = new FensterEinstellungen();
 	public void starte_FensterEinstellungen() {
-		Einstellungen.setWindowDimension(bblalalala, WindowSizeY1, WindowSizeX2, WindowSizeY2);
+		Einstellungen.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
 		Einstellungen.setVisible(true);
 		// ActionListener
 		Einstellungen.buttonBack.addActionListener(this);
@@ -187,10 +187,10 @@ public class Run extends JFrame implements ActionListener {
 			userAntwort = Spiel.btnPhone.getText();
 		}
 
-		// Bugfix: keine Antwort selected
+		// Bugfix: keine Antwort ausgew�hlt
 		if (Spiel.btnTree.isSelected() == false && Spiel.btnHouse.isSelected() == false
 				&& Spiel.btnStreet.isSelected() == false && Spiel.btnPhone.isSelected() == false) {
-			userAntwort = "keine Antowrt selected!";
+			userAntwort = "keine Antowrt ausgew�hlt!";
 		}
 		// Bei Init �berspringen
 		if (aktuelleFrageIndex != 0) {
