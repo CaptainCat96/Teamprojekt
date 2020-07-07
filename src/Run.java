@@ -27,7 +27,8 @@ public class Run extends JFrame implements ActionListener {
 	 * Farbschema: Default,Schwarz, Blau, Rot
 	 */
 	public void ColorDesign() {
-		String Ausgewählt="Default";
+
+		String Ausgewaehlt="Default";
 		Color Schwarz= new Color(0,0,0);
 		String Blau= "#1736E6";
 		String Rot= "#E30302";
@@ -106,8 +107,9 @@ public class Run extends JFrame implements ActionListener {
 
 	public void starte_FensterStartmenü() {
 		// Load Layout
-		Startmenü.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
-		Startmenü.setVisible(true);
+
+		Startmenu.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
+		Startmenu.setVisible(true);
 		// ActionListener
 		Startmenü.btnZumSpiel.addActionListener(this);
 		Startmenü.btnDeinProfil.addActionListener(this);
@@ -187,10 +189,11 @@ public class Run extends JFrame implements ActionListener {
 			userAntwort = Spiel.btnPhone.getText();
 		}
 
-		// Bugfix: keine Antwort ausgewählt
+
+		// Bugfix: keine Antwort ausgewï¿½hlt
 		if (Spiel.btnTree.isSelected() == false && Spiel.btnHouse.isSelected() == false
 				&& Spiel.btnStreet.isSelected() == false && Spiel.btnPhone.isSelected() == false) {
-			userAntwort = "keine Antowrt ausgewählt!";
+			userAntwort = "keine Antowrt ausgewï¿½hlt!";
 		}
 		// Bei Init überspringen
 		if (aktuelleFrageIndex != 0) {
