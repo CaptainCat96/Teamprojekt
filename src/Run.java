@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +27,6 @@ public class Run extends JFrame implements ActionListener {
 	 * Farbschema: Default,Schwarz, Blau, Rot
 	 */
 	public void ColorDesign() {
-
 		String Ausgewaehlt="Default";
 		Color Schwarz= new Color(0,0,0);
 		String Blau= "#1736E6";
@@ -37,7 +37,7 @@ public class Run extends JFrame implements ActionListener {
 	
 	public Run() {
 		
-		starte_FensterStartmenu();
+		starte_FensterStartmenue();
 	}
 	
 	public void setWindowDimension(int x1, int y1, int x2, int y2) {
@@ -57,16 +57,16 @@ public class Run extends JFrame implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// FensterStarmen�
-		if (e.getSource() == Startmenu.btnZumSpiel) {
+		// FensterStarmenue
+		if (e.getSource() == Startmenue.btnZumSpiel) {
 			ResetSpiel();
-			starte_FensterSpiel();
-			Startmenu.dispose();
+			starte_FensterSpiel(Startmenue.holeAusgewaehltesSpiel());
+			Startmenue.dispose();
 		}
-		if (e.getSource() == Startmenu.btnDeinProfil) {
+		if (e.getSource() == Startmenue.btnDeinProfil) {
 			starte_Spielerprofil();
 		}
-		if (e.getSource() == Startmenu.btnEinstellungen) {
+		if (e.getSource() == Startmenue.btnEinstellungen) {
 			starte_FensterEinstellungen();
 		}
 		// FensterSpiel
@@ -76,24 +76,24 @@ public class Run extends JFrame implements ActionListener {
 		if (e.getSource() == Spiel.buttonBack) {
 			Highscore.dispose();
 			Spiel.dispose();
-			starte_FensterStartmenu();
+			starte_FensterStartmenue();
 		}
 		// FensterSpielerprofil
 		if (e.getSource() == Spielerprofil.buttonback) {
-			Startmenu.dispose();
-			starte_FensterStartmenu();
+			Startmenue.dispose();
+			starte_FensterStartmenue();
 			;
 		}
 		// FensterHighscore
 		if (e.getSource() == Highscore.btnZurckZumMen) {
 			Highscore.dispose();
 			Spiel.dispose();
-			starte_FensterStartmenu();
+			starte_FensterStartmenue();
 		}
 		//FensterEinstellungen
 		if (e.getSource() == Einstellungen.buttonBack) {
 			Einstellungen.dispose();
-			starte_FensterStartmenu();
+			starte_FensterStartmenue();
 		}
 	}
 
@@ -102,23 +102,22 @@ public class Run extends JFrame implements ActionListener {
 	 * #############################################################################
 	 * ###### Fenster Logik
 	 */
-	FensterStartmenu Startmenu = new FensterStartmenu();
+	FensterStartmenue Startmenue = new FensterStartmenue(daten);
 
-	public void starte_FensterStartmenu() {
+	public void starte_FensterStartmenue() {
 		// Load Layout
-
-		Startmenu.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
-		Startmenu.setVisible(true);
+		Startmenue.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
+		Startmenue.setVisible(true);
 		// ActionListener
-		Startmenu.btnZumSpiel.addActionListener(this);
-		Startmenu.btnDeinProfil.addActionListener(this);
-		Startmenu.btnEinstellungen.addActionListener(this);
-		Startmenu.rdbtnTonAus.addActionListener(this);
+		Startmenue.btnZumSpiel.addActionListener(this);
+		Startmenue.btnDeinProfil.addActionListener(this);
+		Startmenue.btnEinstellungen.addActionListener(this);
+		Startmenue.rdbtnTonAus.addActionListener(this);
 	}
 
 	FensterSpiel Spiel = new FensterSpiel();
 
-	public void starte_FensterSpiel() {
+	public void starte_FensterSpiel(String lernEinheit) {
 		// Load Layout
 		Spiel.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
 		Spiel.setVisible(true);
@@ -126,9 +125,16 @@ public class Run extends JFrame implements ActionListener {
 		Spiel.btnNext.addActionListener(this);
 		Spiel.buttonBack.addActionListener(this);
 		// Game Logik
-		
-		daten.loadTxtFile("src\\Lerneinheiten\\ExerciseBusinessEnglisch.txt");
-		GameWindow_nextQuestion();// erste Frage einblenden
+
+		String dateiname = daten.getFilenameForLerneinheit(lernEinheit);
+		if(dateiname != null) {
+			System.out.println("Lade Spieldaten: " + "src\\Lerneinheiten\\" + dateiname);
+			daten.loadTxtFile("src\\Lerneinheiten\\" + dateiname);
+			//daten.loadTxtFile("src/Lerneinheiten/" + dateiname);
+			GameWindow_nextQuestion();// erste Frage einblenden
+		} else {
+			System.err.println("Keine Datei für Lerneinheit " + lernEinheit);
+		}
 	}
 
 	FensterSpielerprofil Spielerprofil = new FensterSpielerprofil();
@@ -164,7 +170,7 @@ public class Run extends JFrame implements ActionListener {
 	//Variablen
 	int aktuelleFrageIndex = 0;
 	int maxAnzahlFragen = daten.maxAnzahl;
-	String userAntwort, Antwort;
+	String userAntwort, Loesung;
 	// Variablen f�r Highscore statistiken
 	int AnzahlFalscheAntworten = 0;
 	int AnzahlRichtigeAntworten = 0;
@@ -188,29 +194,28 @@ public class Run extends JFrame implements ActionListener {
 			userAntwort = Spiel.btnPhone.getText();
 		}
 
-
-		// Bugfix: keine Antwort ausgew�hlt
+		// Bugfix: keine Antwort ausgewählt
 		if (Spiel.btnTree.isSelected() == false && Spiel.btnHouse.isSelected() == false
 				&& Spiel.btnStreet.isSelected() == false && Spiel.btnPhone.isSelected() == false) {
 			userAntwort = "keine Antowrt ausgew�hlt!";
 		}
-		// Bei Init �berspringen
+		// Bei Init überspringen
 		if (aktuelleFrageIndex != 0) {
-			Antwort = (String) daten.Antworten[aktuelleFrageIndex - 1];
+			Loesung = daten.Antworten[aktuelleFrageIndex - 1];
 			System.out.println("Antwort ist: " + userAntwort);
-			System.out.println("Antwort ist :" + Antwort);
+			System.out.println("Loesung ist :" + Loesung);
 			// Progress bar Aktualisieren
 			Spiel.progressBar.setMaximum(maxAnzahlFragen);
 			Spiel.progressBar.setValue(aktuelleFrageIndex);
 			// Falls Frage falsch beantwortet
-			if (userAntwort.equals(Antwort) == false) {
+			if (userAntwort.equals(Loesung) == false) {
 				AnzahlFalscheAntworten++;
-				Spiel.lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war: " + Antwort);
-				// lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war:"+Antwort+"(deine
+				Spiel.lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war: " + Loesung);
+				// lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war:"+L�sung+"(deine
 				// Antwort: "+userAntwort+")");
 			}
 			// Falls Frage richtig beantwortet
-			if (userAntwort.equals(Antwort)) {
+			if (userAntwort.equals(Loesung)) {
 				AnzahlRichtigeAntworten++;
 				Spiel.lblStatusLetzteAntwort.setText("Richtig!");
 			}
@@ -224,7 +229,7 @@ public class Run extends JFrame implements ActionListener {
 		Spiel.txtWelchesWortIst.setText(daten.Fragen[aktuelleFrageIndex]);
 		Spiel.FragenVerbleibend.setText(aktuelleFrageIndex + " von " + maxAnzahlFragen);
 		aktuelleFrageIndex++;
-		System.out.println("N�chste Frage");
+		System.out.println("Nächste Frage");
 	}
 	/**
 	 * #############################################################################
