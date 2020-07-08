@@ -1,0 +1,59 @@
+Frage1:Welches Wort ist die Übersetzung für "schreiben"
+;Auswahl1:ir,dormir,venir,escribir
+;Antwort1:escribir
+
+;Frage2:Welches Wort ist die Übersetzung für "sehen"?
+;Auswahl2:ver,fumar,hablar,hay
+;Antwort2:ver
+
+;Frage3:Welches Wort ist die Übersetzung für "rauchen"?
+;Auswahl3:pedir,fumar,invitar,vivir
+;Antwort3:fumar
+
+;Frage4:Welches Wort ist die Übersetzung für "wollen"?
+;Auswahl4:querer,preferir,traer,decir
+;Antwort4:querer
+
+;Frage5:Welches Wort ist die Übersetzung für "schlafen"?
+;Auswahl5:dormir,llegar,conocer,tener
+;Antwort5:dormir
+
+;Frage6:Welches Wort ist die Übersetzung für "Haar"?
+;Auswahl6:faz,pelo,nariz,boca
+;Antwort6:pelo
+
+;Frage7:Welches Wort ist die Übersetzung für "Auge"?
+;Auswahl7:cara,camisa,brazo,ojo
+;Antwort7:ojo
+
+;Frage8:Welches Wort ist die Übersetzung für "Tag"?
+;Auswahl8:diez,dia,cero,hora
+;Antwort8:dia
+
+;Frage9:Welches Wort ist die Übersetzung für "MÃ¤rz"?
+;Auswahl9:martes,miercoles,marzo,ano
+;Antwort9:marzo
+
+;Frage10:Welches Wort ist die Übersetzung für "See"?
+;Auswahl10:luz,ace,lago,lluvia
+;Antwort10:lago
+
+;Frage11:Welches Wort ist die Übersetzung für "Onkel"?
+;Auswahl11:tia,tio,chica,chico
+;Antwort11:tio
+
+;Frage12:Welcher spanische Begriff passt zum Wort "Onkel"?
+;Auswahl12:CFO,CTO,CEO,CBO
+;Antwort12:CFO
+
+;Frage13:Welches Wort ist die Übersetzung für "Lied"?
+;Auswahl13:viaje,juego,cine,cancion
+;Antwort13:cancion
+
+;Frage14:Welches Wort ist die Übersetzung für "Film"?
+;Auswahl14:cine,pelicula,visita,pelota
+;Antwort14:pelicula
+
+;Frage15:Welches Wort ist die Übersetzung für "Clown"?
+;Auswahl15:culo,burro,payaso,caramba
+;Antwort15:payaso
