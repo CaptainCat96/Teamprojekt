@@ -29,8 +29,8 @@ public class Daten {
 		VerfuegbareLerneinheiten.put("2 Englisch","ExerciseBusinessEnglisch.txt");
 		VerfuegbareLerneinheiten.put("3 Spanisch","ExerciseEspanolBasics.txt");
 		VerfuegbareLerneinheiten.put("4 Spanisch","ExerciseEspanolBasic2.txt");
-		VerfuegbareLerneinheiten.put("5 Türkisch","ExerciseTuerkishBasics.txt");
-		VerfuegbareLerneinheiten.put("6 Türkisch","ExerciseTuerkishBasics.txt2");
+		VerfuegbareLerneinheiten.put("5 T�rkisch","ExerciseTuerkishBasics.txt");
+		VerfuegbareLerneinheiten.put("6 T�rkisch","ExerciseTuerkishBasics.txt2");
 		//VerfuegbareLerneinheiten[3]="Italienisch 1"; 
 	}
 	
@@ -103,7 +103,7 @@ public class Daten {
 	}
 
 	/**
-	 * LÃ¤scht alle zeichenumbrÃ¤che und leerzeicehn aus einem String Zeilenumbruch:
+	 * Läscht alle zeichenumbräche und leerzeicehn aus einem String Zeilenumbruch:
 	 * |13|10 Zeilenumbruch Zeerzeile: |13|10|13|10 58 = ":"
 	 * 
 	 * @param input
@@ -112,8 +112,8 @@ public class Daten {
 		// Zeilenumbruch entfernen
 		input = input.replace("\n", ":").replace("\r", "");
 		input = input.replace("::", ":");
-		input = input.replace("Ã¶", "Ã¤");
-		input = input.replace("Ã¤", "Ã¤");
+		input = input.replace("ö", "ä");
+		input = input.replace("ä", "ä");
 		// Assci Fehler
 
 		// System.out.println("input: "+input);
@@ -220,7 +220,7 @@ public class Daten {
 	}
 	
 	/**
-	 * Der Pfad er Ã¤bergeben wird darf kein Lokaler Pfad sein Falsch:
+	 * Der Pfad er äbergeben wird darf kein Lokaler Pfad sein Falsch:
 	 * "C:\\Users\\henri\\eclipse-workspace\\TeamprojektLernprogramm\\src\\Lerneinheiten\\Exercise1"
 	 * 
 	 * Er muss zum Projekt Relativ sein, ausgehend von Source ordner Richtig:
@@ -233,7 +233,7 @@ public class Daten {
 		try {
 			@SuppressWarnings("resource")
 			FileInputStream loadFile = new FileInputStream(inputFile);
-			// FileInputStream lieÃ¤t immer ints
+			// FileInputStream lieät immer ints
 			int timeout_after_iteration = 10000;
 			int i = 0;
 			while (loadFile.available() > 0) {

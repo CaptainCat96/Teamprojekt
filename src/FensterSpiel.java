@@ -1,6 +1,9 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import javafx.scene.paint.Color;
+
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
@@ -53,16 +56,6 @@ public class FensterSpiel extends JFrame {
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
-		lblStatusLetzteAntwort = new JLabel("");
-		lblStatusLetzteAntwort.setHorizontalAlignment(SwingConstants.CENTER);
-		GridBagConstraints gbc_lblStatusLetzteAntwort = new GridBagConstraints();
-		gbc_lblStatusLetzteAntwort.fill = GridBagConstraints.VERTICAL;
-		gbc_lblStatusLetzteAntwort.insets = new Insets(0, 0, 5, 0);
-		gbc_lblStatusLetzteAntwort.gridwidth = 5;
-		gbc_lblStatusLetzteAntwort.gridx = 0;
-		gbc_lblStatusLetzteAntwort.gridy = 0;
-		contentPane.add(lblStatusLetzteAntwort, gbc_lblStatusLetzteAntwort);
-		
 		buttonBack = new JButton("<--");
 		GridBagConstraints gbc_buttonBack = new GridBagConstraints();
 		gbc_buttonBack.anchor = GridBagConstraints.NORTHWEST;
@@ -82,6 +75,16 @@ public class FensterSpiel extends JFrame {
 								gbc_txtWelchesWortIst.gridx = 0;
 								gbc_txtWelchesWortIst.gridy = 1;
 								contentPane.add(txtWelchesWortIst, gbc_txtWelchesWortIst);
+								
+								lblStatusLetzteAntwort = new JLabel("");
+								lblStatusLetzteAntwort.setHorizontalAlignment(SwingConstants.CENTER);
+								GridBagConstraints gbc_lblStatusLetzteAntwort = new GridBagConstraints();
+								gbc_lblStatusLetzteAntwort.fill = GridBagConstraints.VERTICAL;
+								gbc_lblStatusLetzteAntwort.insets = new Insets(0, 0, 5, 0);
+								gbc_lblStatusLetzteAntwort.gridwidth = 7;
+								gbc_lblStatusLetzteAntwort.gridx = 0;
+								gbc_lblStatusLetzteAntwort.gridy = 2;
+								contentPane.add(lblStatusLetzteAntwort, gbc_lblStatusLetzteAntwort);
 						
 								btnPhone = new JRadioButton("phone");
 								btnPhone.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));

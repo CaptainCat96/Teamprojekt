@@ -133,7 +133,7 @@ public class Run extends JFrame implements ActionListener {
 			//daten.loadTxtFile("src/Lerneinheiten/" + dateiname);
 			GameWindow_nextQuestion();// erste Frage einblenden
 		} else {
-			System.err.println("Keine Datei fÃ¼r Lerneinheit " + lernEinheit);
+			System.err.println("Keine Datei für Lerneinheit " + lernEinheit);
 		}
 	}
 
@@ -171,7 +171,7 @@ public class Run extends JFrame implements ActionListener {
 	int aktuelleFrageIndex = 0;
 	int maxAnzahlFragen = daten.maxAnzahl;
 	String userAntwort, Loesung;
-	// Variablen fï¿½r Highscore statistiken
+	// Variablen f�r Highscore statistiken
 	int AnzahlFalscheAntworten = 0;
 	int AnzahlRichtigeAntworten = 0;
 	public void GameWindow_nextQuestion() {
@@ -194,12 +194,12 @@ public class Run extends JFrame implements ActionListener {
 			userAntwort = Spiel.btnPhone.getText();
 		}
 
-		// Bugfix: keine Antwort ausgewÃ¤hlt
+		// Bugfix: keine Antwort ausgewählt
 		if (Spiel.btnTree.isSelected() == false && Spiel.btnHouse.isSelected() == false
 				&& Spiel.btnStreet.isSelected() == false && Spiel.btnPhone.isSelected() == false) {
-			userAntwort = "keine Antowrt ausgewï¿½hlt!";
+			userAntwort = "keine Antowrt ausgew�hlt!";
 		}
-		// Bei Init Ã¼berspringen
+		// Bei Init überspringen
 		if (aktuelleFrageIndex != 0) {
 			Loesung = daten.Antworten[aktuelleFrageIndex - 1];
 			System.out.println("Antwort ist: " + userAntwort);
@@ -211,7 +211,7 @@ public class Run extends JFrame implements ActionListener {
 			if (userAntwort.equals(Loesung) == false) {
 				AnzahlFalscheAntworten++;
 				Spiel.lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war: " + Loesung);
-				// lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war:"+Lï¿½sung+"(deine
+				// lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war:"+L�sung+"(deine
 				// Antwort: "+userAntwort+")");
 			}
 			// Falls Frage richtig beantwortet
@@ -229,7 +229,7 @@ public class Run extends JFrame implements ActionListener {
 		Spiel.txtWelchesWortIst.setText(daten.Fragen[aktuelleFrageIndex]);
 		Spiel.FragenVerbleibend.setText(aktuelleFrageIndex + " von " + maxAnzahlFragen);
 		aktuelleFrageIndex++;
-		System.out.println("NÃ¤chste Frage");
+		System.out.println("Nächste Frage");
 	}
 	/**
 	 * #############################################################################
