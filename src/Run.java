@@ -211,6 +211,7 @@ public class Run extends JFrame implements ActionListener {
 			if (userAntwort.equals(Loesung) == false) {
 				AnzahlFalscheAntworten++;
 				Spiel.lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war: " + Loesung);
+				Spiel.lblStatusLetzteAntwort.setForeground(Color.RED);
 				// lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war:"+L�sung+"(deine
 				// Antwort: "+userAntwort+")");
 			}
@@ -218,6 +219,7 @@ public class Run extends JFrame implements ActionListener {
 			if (userAntwort.equals(Loesung)) {
 				AnzahlRichtigeAntworten++;
 				Spiel.lblStatusLetzteAntwort.setText("Richtig!");
+				Spiel.lblStatusLetzteAntwort.setForeground(Color.GREEN);
 			}
 		}
 		Spiel.btnTree.setText(daten.AntwortAlternativen[aktuelleFrageIndex][0]);
