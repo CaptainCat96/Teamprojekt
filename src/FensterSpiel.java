@@ -2,7 +2,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import javafx.scene.paint.Color;
+//import javafx.scene.paint.Color;
 
 import javax.swing.JButton;
 import java.awt.Font;
