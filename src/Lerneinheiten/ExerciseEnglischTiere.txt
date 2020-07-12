@@ -1,44 +1,44 @@
-Frage1:Welches Wort ist die Übersetzung für "Frosch"
+Frage1:Welcher englische Begriff passt zum Wort "Frosch"
 ;Auswahl1:toad,frog,snake,pike
 ;Antwort1:frog
 
-;Frage2:Welches Wort ist die Übersetzung für "Garnele"?
+;Frage2:Welcher englische Begriff passt zum Wort "Garnele"?
 ;Auswahl2:barbel,lobster,shark,shrimp
 ;Antwort2:shrimp
 
-;Frage3:Welches Wort ist die Übersetzung für "Ameise"?
+;Frage3:Welcher englische Begriff passt zum Wort "Ameise"?
 ;Auswahl3:ant,fly,moth,midge
 ;Antwort3:ant
 
-;Frage4:Welches Wort ist die Übersetzung für "Eidechse"?
+;Frage4:Welcher englische Begriff passt zum Wort "Eidechse"?
 ;Auswahl4:gecko,sidewinder,lizard,snake
 ;Antwort4:lizard
 
-;Frage5:Welches Wort ist die Übersetzung für "Dackel"?
+;Frage5:Welcher englische Begriff passt zum Wort "Dackel"?
 ;Auswahl5:bear,dachshund,badger,otter
 ;Antwort5:badger
 
-;Frage6:Welches Wort ist die Übersetzung für "Fuchs"?
+;Frage6:Welcher englische Begriff passt zum Wort "Fuchs"?
 ;Auswahl6:bat,hare,hamster,fox
 ;Antwort6:fox
 
-;Frage7:Welches Wort ist die Übersetzung für "Stachelschwein"?
+;Frage7:Welcher englische Begriff passt zum Wort "Stachelschwein"?
 ;Auswahl7:seal,skunk,racoon,wolf
 ;Antwort7:skunk
 
-;Frage8:Welches Wort ist die Übersetzung für "Pfote"?
+;Frage8:Welcher englische Begriff passt zum Wort "Pfote"?
 ;Auswahl8:claw,antler,paw,tusk
 ;Antwort8:paw
 
-;Frage9:Welches Wort ist die Übersetzung für "Eule"?
+;Frage9:Welcher englische Begriff passt zum Wort "Eule"?
 ;Auswahl9:hawk,eagle,duck,owl
 ;Antwort9:owl
 
-;Frage10:Welches Wort ist die Übersetzung für "Spatz"?
+;Frage10:Welcher englische Begriff passt zum Wort "Spatz"?
 ;Auswahl10:swan,sparrow,stork,ostrich
 ;Antwort10:sparrow
 
-;Frage11:Welches Wort ist die Übersetzung für "SchildkrÃ¶te"?
+;Frage11:Welcher englische Begriff passt zum Wort "SchildkrÃ¶te"?
 ;Auswahl11:turtle,crocodile,cottonmouth
 ;Antwort11:turtle
 
@@ -46,14 +46,14 @@ Frage1:Welches Wort ist die Übersetzung für "Frosch"
 ;Auswahl12:wasp,gadfly,maggot,caterpillar
 ;Antwort12:caterpillar
 
-;Frage13:Welches Wort ist die Übersetzung für "Tintenfish"?
+;Frage13:Welcher englische Begriff passt zum Wort "Tintenfish"?
 ;Auswahl13:squid,catfish,mantee,seahorse
 ;Antwort13:squid
 
-;Frage14:Welches Wort ist die Übersetzung für "Schmetterling"?
+;Frage14:Welcher englische Begriff passt zum Wort "Schmetterling"?
 ;Auswahl14:tick,cricket,butterfly,snail
 ;Antwort14:butterfly
 
-;Frage15:Welches Wort ist die Übersetzung für "Gans"?
+;Frage15:Welcher englische Begriff passt zum Wort "Gans"?
 ;Auswahl15:pigeon,turkey,peacock,goose
 ;Antwort15:goose

@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -37,7 +38,8 @@ public class Run extends JFrame implements ActionListener {
 	
 	public Run() {
 		
-		starte_FensterStartmenue();
+	    //starte_FensterStartmenue();
+	    starte_FensterLogin();
 	}
 	
 	public void setWindowDimension(int x1, int y1, int x2, int y2) {
@@ -56,8 +58,9 @@ public class Run extends JFrame implements ActionListener {
 	 * ###### Action Listener
 	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// Fenster login
+	public void actionPerformed(ActionEvent e) { 
+		
+	    // Fenster login
 		if(e.getSource() == login.btnLogin) {
 			if(!login.isUserInputValid()) {
 				JOptionPane.showMessageDialog(null, "You have to enter a name and password!", "Login error", JOptionPane.ERROR_MESSAGE);
@@ -84,8 +87,8 @@ public class Run extends JFrame implements ActionListener {
 				}
 			}
 		}
-
-		// FensterStarmenue
+	    
+		// FensterStartmenue
 		if (e.getSource() == Startmenue.btnZumSpiel) {
 			ResetSpiel();
 			starte_FensterSpiel(Startmenue.holeAusgewaehltesSpiel());
@@ -130,7 +133,7 @@ public class Run extends JFrame implements ActionListener {
 	 * #############################################################################
 	 * ###### Fenster Logik
 	 */
-	FensterLogin login = new FensterLogin();
+    FensterLogin login = new FensterLogin();
     
     	public void starte_FensterLogin() {
 		// Load Layout
@@ -140,8 +143,8 @@ public class Run extends JFrame implements ActionListener {
 		login.btnLogin.addActionListener(this);
 		login.btnRegister.addActionListener(this);
 	}
-	
-	FensterStartmenue Startmenue = new FensterStartmenue(daten);
+
+    FensterStartmenue Startmenue = new FensterStartmenue(daten);
 
 	public void starte_FensterStartmenue() {
 		// Load Layout
