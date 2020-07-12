@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -37,7 +38,8 @@ public class Run extends JFrame implements ActionListener {
 	
 	public Run() {
 		
-		starte_FensterStartmenue();
+	    //starte_FensterStartmenue();
+	    starte_FensterLogin();
 	}
 	
 	public void setWindowDimension(int x1, int y1, int x2, int y2) {
@@ -56,8 +58,37 @@ public class Run extends JFrame implements ActionListener {
 	 * ###### Action Listener
 	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// FensterStarmenue
+	public void actionPerformed(ActionEvent e) { 
+		
+	    // Fenster login
+		if(e.getSource() == login.btnLogin) {
+			if(!login.isUserInputValid()) {
+				JOptionPane.showMessageDialog(null, "You have to enter a name and password!", "Login error", JOptionPane.ERROR_MESSAGE);
+			} else {
+				if(login.isAccountValid()) {
+					login.dispose();
+					String user = login.getUser();
+					starte_FensterStartmenue();
+				} else {
+					JOptionPane.showMessageDialog(null, "Incorrect account", "Login", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		}
+		if(e.getSource() == login.btnRegister) {
+			if(!login.isUserInputValid()) {
+				JOptionPane.showMessageDialog(null, "You have to enter a name and password!", "Login error", JOptionPane.ERROR_MESSAGE);
+			} else {
+				if(login.registerUser()) {
+					login.dispose();
+					String user = login.getUser();
+					starte_FensterStartmenue();
+				} else {
+					JOptionPane.showMessageDialog(null, "Cannot register user", "Register", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		}
+	    
+		// FensterStartmenue
 		if (e.getSource() == Startmenue.btnZumSpiel) {
 			ResetSpiel();
 			starte_FensterSpiel(Startmenue.holeAusgewaehltesSpiel());
@@ -102,7 +133,18 @@ public class Run extends JFrame implements ActionListener {
 	 * #############################################################################
 	 * ###### Fenster Logik
 	 */
-	FensterStartmenue Startmenue = new FensterStartmenue(daten);
+    FensterLogin login = new FensterLogin();
+    
+    	public void starte_FensterLogin() {
+		// Load Layout
+		login.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
+		login.setVisible(true);
+		// ActionListener		
+		login.btnLogin.addActionListener(this);
+		login.btnRegister.addActionListener(this);
+	}
+
+    FensterStartmenue Startmenue = new FensterStartmenue(daten);
 
 	public void starte_FensterStartmenue() {
 		// Load Layout
@@ -211,6 +253,7 @@ public class Run extends JFrame implements ActionListener {
 			if (userAntwort.equals(Loesung) == false) {
 				AnzahlFalscheAntworten++;
 				Spiel.lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war: " + Loesung);
+				Spiel.lblStatusLetzteAntwort.setForeground(Color.RED);
 				// lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war:"+L�sung+"(deine
 				// Antwort: "+userAntwort+")");
 			}
@@ -218,6 +261,7 @@ public class Run extends JFrame implements ActionListener {
 			if (userAntwort.equals(Loesung)) {
 				AnzahlRichtigeAntworten++;
 				Spiel.lblStatusLetzteAntwort.setText("Richtig!");
+				Spiel.lblStatusLetzteAntwort.setForeground(Color.GREEN);
 			}
 		}
 		Spiel.btnTree.setText(daten.AntwortAlternativen[aktuelleFrageIndex][0]);
