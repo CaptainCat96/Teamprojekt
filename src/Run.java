@@ -57,6 +57,34 @@ public class Run extends JFrame implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		// Fenster login
+		if(e.getSource() == login.btnLogin) {
+			if(!login.isUserInputValid()) {
+				JOptionPane.showMessageDialog(null, "You have to enter a name and password!", "Login error", JOptionPane.ERROR_MESSAGE);
+			} else {
+				if(login.isAccountValid()) {
+					login.dispose();
+					String user = login.getUser();
+					starte_FensterStartmenue();
+				} else {
+					JOptionPane.showMessageDialog(null, "Incorrect account", "Login", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		}
+		if(e.getSource() == login.btnRegister) {
+			if(!login.isUserInputValid()) {
+				JOptionPane.showMessageDialog(null, "You have to enter a name and password!", "Login error", JOptionPane.ERROR_MESSAGE);
+			} else {
+				if(login.registerUser()) {
+					login.dispose();
+					String user = login.getUser();
+					starte_FensterStartmenue();
+				} else {
+					JOptionPane.showMessageDialog(null, "Cannot register user", "Register", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		}
+
 		// FensterStarmenue
 		if (e.getSource() == Startmenue.btnZumSpiel) {
 			ResetSpiel();
@@ -102,6 +130,17 @@ public class Run extends JFrame implements ActionListener {
 	 * #############################################################################
 	 * ###### Fenster Logik
 	 */
+	FensterLogin login = new FensterLogin();
+    
+    	public void starte_FensterLogin() {
+		// Load Layout
+		login.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
+		login.setVisible(true);
+		// ActionListener		
+		login.btnLogin.addActionListener(this);
+		login.btnRegister.addActionListener(this);
+	}
+	
 	FensterStartmenue Startmenue = new FensterStartmenue(daten);
 
 	public void starte_FensterStartmenue() {
