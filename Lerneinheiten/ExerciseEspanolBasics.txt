@@ -1,44 +1,44 @@
-Frage1:Welches Wort ist die Übersetzung für "schreiben"
+Frage1:Welcher spanische Begriff passt zum Wort "schreiben"
 ;Auswahl1:ir,dormir,venir,escribir
 ;Antwort1:escribir
 
-;Frage2:Welches Wort ist die Übersetzung für "sehen"?
+;Frage2:Welcher spanische Begriff passt zum Wort "sehen"?
 ;Auswahl2:ver,fumar,hablar,hay
 ;Antwort2:ver
 
-;Frage3:Welches Wort ist die Übersetzung für "rauchen"?
+;Frage3:Welcher spanische Begriff passt zum Wort "rauchen"?
 ;Auswahl3:pedir,fumar,invitar,vivir
 ;Antwort3:fumar
 
-;Frage4:Welches Wort ist die Übersetzung für "wollen"?
+;Frage4:Welcher spansiche Begriff passt zum Wort "wollen"?
 ;Auswahl4:querer,preferir,traer,decir
 ;Antwort4:querer
 
-;Frage5:Welches Wort ist die Übersetzung für "schlafen"?
+;Frage5:Welcher spansiche Begriff passt zum Wort "schlafen"?
 ;Auswahl5:dormir,llegar,conocer,tener
 ;Antwort5:dormir
 
-;Frage6:Welches Wort ist die Übersetzung für "Haar"?
+;Frage6:Welcher spansiche Begriff passt zum Wort "Haar"?
 ;Auswahl6:faz,pelo,nariz,boca
 ;Antwort6:pelo
 
-;Frage7:Welches Wort ist die Übersetzung für "Auge"?
+;Frage7:Welcher spansiche Begriff passt zum Wort "Auge"?
 ;Auswahl7:cara,camisa,brazo,ojo
 ;Antwort7:ojo
 
-;Frage8:Welches Wort ist die Übersetzung für "Tag"?
+;Frage8:Welcher spansiche Begriff passt zum Wort "Tag"?
 ;Auswahl8:diez,dia,cero,hora
 ;Antwort8:dia
 
-;Frage9:Welches Wort ist die Übersetzung für "MÃ¤rz"?
+;Frage9:Welcher spansiche Begriff passt zum Wort "MÃ¤rz"?
 ;Auswahl9:martes,miercoles,marzo,ano
 ;Antwort9:marzo
 
-;Frage10:Welches Wort ist die Übersetzung für "See"?
+;Frage10:Welcher spanische Begriff passt zum Wort "See"?
 ;Auswahl10:luz,ace,lago,lluvia
 ;Antwort10:lago
 
-;Frage11:Welches Wort ist die Übersetzung für "Onkel"?
+;Frage11:Welcher spansiche Begriff passt zum Wort "Onkel"?
 ;Auswahl11:tia,tio,chica,chico
 ;Antwort11:tio
 
@@ -46,14 +46,14 @@ Frage1:Welches Wort ist die Übersetzung für "schreiben"
 ;Auswahl12:CFO,CTO,CEO,CBO
 ;Antwort12:CFO
 
-;Frage13:Welches Wort ist die Übersetzung für "Lied"?
+;Frage13:Welcher spansiche Begriff passt zum Wort "Lied"?
 ;Auswahl13:viaje,juego,cine,cancion
 ;Antwort13:cancion
 
-;Frage14:Welches Wort ist die Übersetzung für "Film"?
+;Frage14:Welcher spansiche Begriff passt zum Wort "Film"?
 ;Auswahl14:cine,pelicula,visita,pelota
 ;Antwort14:pelicula
 
-;Frage15:Welches Wort ist die Übersetzung für "Clown"?
+;Frage15:Welcher spansiche Begriff passt zum Wort "Clown"?
 ;Auswahl15:culo,burro,payaso,caramba
 ;Antwort15:payaso
