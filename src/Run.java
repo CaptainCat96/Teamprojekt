@@ -1,7 +1,4 @@
 import javax.swing.JFrame;
-
-import jaco.mp3.player.MP3Player;
-
 import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
