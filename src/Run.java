@@ -1,8 +1,13 @@
-import javax.swing.JFrame;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 
 /**
  * Main Class
@@ -12,12 +17,14 @@ import java.awt.event.ActionListener;
  */
 @SuppressWarnings("serial")
 public class Run extends JFrame implements ActionListener {
+	
+	
 	/*
 	 * #############################################################################
 	 * #############################################################################
 	 * ###### Allgemeine Variablen
 	 */
-	Daten daten = new Daten();
+	Daten daten= new Daten();
 	// Fenster einstellungen
 	int WindowSizeX1 = 0;
 	int WindowSizeY1 = 0;
@@ -33,11 +40,10 @@ public class Run extends JFrame implements ActionListener {
 		String Rot= "#E30302";
 	}
 	
-	
-	
 	public Run() {
-		
+		playAudio();		
 		starte_FensterStartmenue();
+		this.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
 	}
 	
 	public void setWindowDimension(int x1, int y1, int x2, int y2) {
@@ -58,10 +64,18 @@ public class Run extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// FensterStarmenue
+		if (e.getSource() == Startmenue.rdbtnTonAus) {
+			
+			if(Startmenue.rdbtnTonAus.isSelected()==false) {
+				System.out.println("Resume playing Audio");
+				playAudio();
+			}else {
+				System.out.println("Stop Playing Audio");
+				this.stopAudio();
+			}
+		}
 		if (e.getSource() == Startmenue.btnZumSpiel) {
-			ResetSpiel();
 			starte_FensterSpiel(Startmenue.holeAusgewaehltesSpiel());
-			Startmenue.dispose();
 		}
 		if (e.getSource() == Startmenue.btnDeinProfil) {
 			starte_Spielerprofil();
@@ -70,29 +84,38 @@ public class Run extends JFrame implements ActionListener {
 			starte_FensterEinstellungen();
 		}
 		// FensterSpiel
-		if (e.getSource() == Spiel.btnNext) {
-			GameWindow_nextQuestion();
+		try {//falls Fenster nicht Konstuiert ist
+			if (e.getSource() == Spiel.btnNext) {
+				GameWindow_nextQuestion();
+			}
+			if (e.getSource() == Spiel.buttonBack) {
+				System.out.println("beende spiel");
+				allePanelsSchließen();
+				starte_FensterStartmenue();
+			}
+		}catch(Exception e4) {
+			//Fenster noch nicht konsturiert
 		}
-		if (e.getSource() == Spiel.buttonBack) {
-			Highscore.dispose();
-			Spiel.dispose();
-			starte_FensterStartmenue();
-		}
+		
+		
 		// FensterSpielerprofil
 		if (e.getSource() == Spielerprofil.buttonback) {
-			Startmenue.dispose();
-			starte_FensterStartmenue();
-			;
-		}
-		// FensterHighscore
-		if (e.getSource() == Highscore.btnZurckZumMen) {
-			Highscore.dispose();
-			Spiel.dispose();
+			allePanelsSchließen();
 			starte_FensterStartmenue();
 		}
+		try {
+			// FensterHighscore
+			if (e.getSource() == Highscore.btnZurckZumMen) {
+				allePanelsSchließen();
+				starte_FensterStartmenue();
+			}
+		}catch(Exception e2) {
+			//Fenster noch nicht konstuiert
+		}
+		
 		//FensterEinstellungen
 		if (e.getSource() == Einstellungen.buttonBack) {
-			Einstellungen.dispose();
+			allePanelsSchließen();
 			starte_FensterStartmenue();
 		}
 	}
@@ -102,29 +125,65 @@ public class Run extends JFrame implements ActionListener {
 	 * #############################################################################
 	 * ###### Fenster Logik
 	 */
-	FensterStartmenue Startmenue = new FensterStartmenue(daten);
-
-	public void starte_FensterStartmenue() {
-		// Load Layout
-		Startmenue.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
-		Startmenue.setVisible(true);
-		// ActionListener
-		Startmenue.btnZumSpiel.addActionListener(this);
-		Startmenue.btnDeinProfil.addActionListener(this);
-		Startmenue.btnEinstellungen.addActionListener(this);
-		Startmenue.rdbtnTonAus.addActionListener(this);
+	public void allePanelsSchließen() {
+		try {
+			this.remove(Startmenue.contentPane);
+			this.remove(Einstellungen.contentPane);
+			this.remove(Spielerprofil.contentPane);
+			this.remove(Spiel.contentPane);
+			this.remove(Highscore.contentPane);
+		}catch(Exception e) {
+			System.out.println("Warnung:Es sind noch nicht alle Fenster erstellt worden.");
+		}
+		
+		
+		this.repaint();
 	}
-
+	
+	boolean ersteIterationFuerStartmenue=true;
+	FensterStartmenue Startmenue = new FensterStartmenue(daten);
+	public void starte_FensterStartmenue() {
+		System.out.println("Create Startmenue");
+		allePanelsSchließen();
+		this.add(Startmenue.contentPane);		
+		this.setVisible(true);
+		if(ersteIterationFuerStartmenue) {
+			// ActionListener
+			Startmenue.btnZumSpiel.addActionListener(this);
+			Startmenue.btnDeinProfil.addActionListener(this);
+			Startmenue.btnEinstellungen.addActionListener(this);
+			Startmenue.rdbtnTonAus.addActionListener(this);
+			ersteIterationFuerStartmenue=false;
+		}
+		setColor(Startmenue.contentPane);
+	}
+	
+	private void setColor(JPanel panel) {
+	   if (Einstellungen.color != null) {
+		  panel.setBackground(Einstellungen.color);
+	   }
+	}
+	
+	boolean ersteIterationFuerSpiel=true;
 	FensterSpiel Spiel = new FensterSpiel();
-
 	public void starte_FensterSpiel(String lernEinheit) {
-		// Load Layout
-		Spiel.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
-		Spiel.setVisible(true);
-		// ActionListener
+		System.out.println("Create Spiel");
+		allePanelsSchließen();
+		this.add(Spiel.contentPane);
+		this.setVisible(true);
+		
+		Spiel.btnNext.removeActionListener(this);
+		Spiel.buttonBack.removeActionListener(this);
+		
 		Spiel.btnNext.addActionListener(this);
 		Spiel.buttonBack.addActionListener(this);
-		// Game Logik
+		/**
+		if(ersteIterationFuerSpiel) {
+			// ActionListener
+			Spiel.btnNext.addActionListener(this);
+			Spiel.buttonBack.addActionListener(this);
+			ersteIterationFuerSpiel=false;
+		}*/
 
 		String dateiname = daten.getFilenameForLerneinheit(lernEinheit);
 		if(dateiname != null) {
@@ -135,32 +194,52 @@ public class Run extends JFrame implements ActionListener {
 		} else {
 			System.err.println("Keine Datei für Lerneinheit " + lernEinheit);
 		}
+		setColor(Spiel.contentPane);
 	}
 
+	boolean ersteIterationFuerSpielerprofil=true;//Operationen wie action Listener nur einmal ausführen!
 	FensterSpielerprofil Spielerprofil = new FensterSpielerprofil();
-
 	public void starte_Spielerprofil() {
-		Spielerprofil.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
-		Spielerprofil.setVisible(true);
-		// ActionListener
-		Spielerprofil.buttonback.addActionListener(this);
+		System.out.println("Create Spielerprofil");
+		allePanelsSchließen();
+		this.add(Spielerprofil.contentPane);
+		if(ersteIterationFuerSpielerprofil) {
+			Spielerprofil.buttonback.addActionListener(this);
+			ersteIterationFuerSpielerprofil=false;
+		}
+		this.setVisible(true);
+		setColor(Spielerprofil.contentPane);
 	}
-
-	FensterHighscore Highscore = new FensterHighscore();
-
+	boolean ersteIterationFuerHighscore=true;//Operationen wie action Listener nur einmal ausführen!
+	FensterHighscore Highscore;
 	public void starte_FensterHighscore() {
-		Highscore.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
-		Highscore.setVisible(true);
+		System.out.println("Create Highscore");
+		Highscore = new FensterHighscore(AnzahlRichtigeAntworten);
+		allePanelsSchließen();
+		this.add(Highscore.contentPane);
+		if(ersteIterationFuerHighscore) {
+			Highscore.btnZurckZumMen.addActionListener(this);
+			ersteIterationFuerHighscore=false;
+		}
+		this.setVisible(true);
 		// ActionListener
-		Highscore.btnZurckZumMen.addActionListener(this);
+		setColor(Highscore.contentPane);
 	}
 	
+	boolean ersteIterationFuerEinstellungen=true;//Operationen wie action Listener nur einmal ausführen!
 	FensterEinstellungen Einstellungen = new FensterEinstellungen();
 	public void starte_FensterEinstellungen() {
-		Einstellungen.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
-		Einstellungen.setVisible(true);
+		System.out.println("Create Einstellungen");
+		allePanelsSchließen();
+		this.add(Einstellungen.contentPane);
+		
+		this.setVisible(true);
 		// ActionListener
-		Einstellungen.buttonBack.addActionListener(this);
+		if(ersteIterationFuerEinstellungen) {
+			Einstellungen.buttonBack.addActionListener(this);
+			ersteIterationFuerEinstellungen=false;
+		}
+		
 	}
 	/**
 	 * #############################################################################
@@ -175,8 +254,16 @@ public class Run extends JFrame implements ActionListener {
 	int AnzahlFalscheAntworten = 0;
 	int AnzahlRichtigeAntworten = 0;
 	public void GameWindow_nextQuestion() {
-		maxAnzahlFragen = daten.getFirstFreeIndex(daten.Fragen);
+		System.out.println("aktuelleFrageIndex "+ aktuelleFrageIndex);
+		/**
+		 * Bugfix: Game lässt sich nicht neu starten
+		 */
+		if(maxAnzahlFragen==0) {
+			System.out.println("Max anzahl fragen"+maxAnzahlFragen);
+			maxAnzahlFragen = daten.getFirstFreeIndex(daten.Fragen);
+		}
 		if (aktuelleFrageIndex >= maxAnzahlFragen) {
+			System.out.println("Spiel: zeige Highscore"+aktuelleFrageIndex+">="+ maxAnzahlFragen);
 			starte_FensterHighscore();
 		}
 
@@ -202,8 +289,8 @@ public class Run extends JFrame implements ActionListener {
 		// Bei Init überspringen
 		if (aktuelleFrageIndex != 0) {
 			Loesung = daten.Antworten[aktuelleFrageIndex - 1];
-			System.out.println("Antwort ist: " + userAntwort);
-			System.out.println("Loesung ist :" + Loesung);
+			//System.out.println("Antwort ist: " + userAntwort);
+			//System.out.println("Loesung ist :" + Loesung);
 			// Progress bar Aktualisieren
 			Spiel.progressBar.setMaximum(maxAnzahlFragen);
 			Spiel.progressBar.setValue(aktuelleFrageIndex);
@@ -211,6 +298,7 @@ public class Run extends JFrame implements ActionListener {
 			if (userAntwort.equals(Loesung) == false) {
 				AnzahlFalscheAntworten++;
 				Spiel.lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war: " + Loesung);
+				Spiel.lblStatusLetzteAntwort.setForeground(Color.RED);
 				// lblStatusLetzteAntwort.setText("Falsch. Richtige Antwort war:"+L�sung+"(deine
 				// Antwort: "+userAntwort+")");
 			}
@@ -218,27 +306,50 @@ public class Run extends JFrame implements ActionListener {
 			if (userAntwort.equals(Loesung)) {
 				AnzahlRichtigeAntworten++;
 				Spiel.lblStatusLetzteAntwort.setText("Richtig!");
+				Spiel.lblStatusLetzteAntwort.setForeground(Color.GREEN);
 			}
 		}
-		Spiel.btnTree.setText(daten.AntwortAlternativen[aktuelleFrageIndex][0]);
-		Spiel.btnHouse.setText(daten.AntwortAlternativen[aktuelleFrageIndex][1]);
-		Spiel.btnStreet.setText(daten.AntwortAlternativen[aktuelleFrageIndex][2]);
-		Spiel.btnPhone.setText(daten.AntwortAlternativen[aktuelleFrageIndex][3]);
-		Spiel.btnPencil.setVisible(false);
-		Spiel.btnRabbit.setVisible(false);
-		Spiel.txtWelchesWortIst.setText(daten.Fragen[aktuelleFrageIndex]);
-		Spiel.FragenVerbleibend.setText(aktuelleFrageIndex + " von " + maxAnzahlFragen);
-		aktuelleFrageIndex++;
-		System.out.println("Nächste Frage");
+		if(aktuelleFrageIndex<maxAnzahlFragen) {
+			Spiel.btnTree.setText(daten.AntwortAlternativen[aktuelleFrageIndex][0]);
+			Spiel.btnHouse.setText(daten.AntwortAlternativen[aktuelleFrageIndex][1]);
+			Spiel.btnStreet.setText(daten.AntwortAlternativen[aktuelleFrageIndex][2]);
+			Spiel.btnPhone.setText(daten.AntwortAlternativen[aktuelleFrageIndex][3]);
+			Spiel.btnPencil.setVisible(false);
+			Spiel.btnRabbit.setVisible(false);
+			Spiel.txtWelchesWortIst.setText(daten.Fragen[aktuelleFrageIndex]);
+			Spiel.FragenVerbleibend.setText(aktuelleFrageIndex + " von " + maxAnzahlFragen);
+			aktuelleFrageIndex++;
+			//System.out.println("Nächste Frage");
+		
+		}
+		
 	}
 	/**
 	 * #############################################################################
 	 * #############################################################################
 	 * ###### Hilfsmethoden
 	 */
-	public void ResetSpiel() {
-		System.out.println("ResetSpiel");
-		aktuelleFrageIndex = 0;
+	
+	/*
+	 * Audio Player
+	 */
+	
+	//File track1 = new File("enemy_missle.mp3");
+	Clip Audio;
+	AudioInputStream audioIn;
+	public void playAudio() {
+		try {
+			//Menu Music
+			audioIn = AudioSystem.getAudioInputStream(Run.class.getResource("TRACK1.wav"));
+			Audio = AudioSystem.getClip();
+			Audio.open(audioIn);
+			Audio.start();
+		}catch(Exception e) {
+			System.out.println(e);
+		}	
+	}
+	public void stopAudio() {
+		Audio.stop();
 	}
 	
 
