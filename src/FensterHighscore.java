@@ -15,7 +15,7 @@ import javax.swing.JButton;
 @SuppressWarnings("serial")
 public class FensterHighscore extends JFrame {
 
-	private JPanel contentPane;
+	JPanel contentPane;
 	JButton btnZurckZumMen;
 
 	public void setWindowDimension(int x1,int y1,int x2,int y2) {
@@ -23,8 +23,9 @@ public class FensterHighscore extends JFrame {
 	}
 	/**
 	 * Create the frame.
+	 * @param anzahlRichtigeAntworten 
 	 */
-	public FensterHighscore() {
+	public FensterHighscore(int anzahlRichtigeAntworten) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -67,7 +68,7 @@ public class FensterHighscore extends JFrame {
 			lblDuHastBisher.setBounds(146, 81, 135, 56);
 			contentPane.add(lblDuHastBisher, gbc_lblDuHastBisher);
 				
-			JLabel lblAnzahl = new JLabel("XY W\u00F6rter");
+			JLabel lblAnzahl = new JLabel(anzahlRichtigeAntworten+ " W\u00F6rter richtig beantwortet");
 			GridBagConstraints gbc_lblAnzahl = new GridBagConstraints();
 			gbc_lblAnzahl.insets = new Insets (0, 0, 5, 5);
 			gbc_lblAnzahl.gridx = 1;
@@ -75,7 +76,7 @@ public class FensterHighscore extends JFrame {
 			lblAnzahl.setFont(new Font("Yu Gothic UI Light", Font.BOLD, 18));
 			lblAnzahl.setBounds(156, 112, 102, 56);
 			contentPane.add(lblAnzahl, gbc_lblAnzahl);
-			
+			/**
 			JLabel lblKorrektBeantwortet = new JLabel("am St\u00FCck korrekt beantwortet !");
 			GridBagConstraints gbc_lblKorrekt = new GridBagConstraints();
 			gbc_lblKorrekt.insets = new Insets (0, 0, 5, 5);
@@ -93,7 +94,7 @@ public class FensterHighscore extends JFrame {
 			lblMaximalKannst.setFont(new Font("Yu Gothic UI Light", Font.PLAIN, 11));
 			lblMaximalKannst.setBounds(60, 236, 350, 14);
 			contentPane.add(lblMaximalKannst, gbc_lblMaxi);
-			
+			*/
 		
 	}
 }

@@ -15,7 +15,7 @@ import java.awt.Image;
 @SuppressWarnings("serial")
 public class FensterSpielerprofil extends JFrame {
 
-	private JPanel contentPane;
+	JPanel contentPane;
 	JButton buttonback;
 	JLabel lblNewLabel;
 

@@ -29,8 +29,8 @@ public class Daten {
 		VerfuegbareLerneinheiten.put("2 Englisch","ExerciseBusinessEnglisch.txt");
 		VerfuegbareLerneinheiten.put("3 Spanisch","ExerciseEspanolBasics.txt");
 		VerfuegbareLerneinheiten.put("4 Spanisch","ExerciseEspanolBasic2.txt");
-		VerfuegbareLerneinheiten.put("5 Tuerkisch","ExerciseTuerkishBasics.txt");
-		VerfuegbareLerneinheiten.put("6 Tuerkisch","ExerciseTuerkishBasics.txt2");
+		VerfuegbareLerneinheiten.put("5 Türkisch","ExerciseTuerkishBasics.txt");
+		VerfuegbareLerneinheiten.put("6 Türkisch","ExerciseTuerkishBasics.txt2");
 		//VerfuegbareLerneinheiten[3]="Italienisch 1"; 
 	}
 	
