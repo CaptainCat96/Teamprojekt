@@ -57,3 +57,28 @@ Antwort14:advertising
 Frage15:Welcher englische Begriff passt zum Wort "Markler"?
 Auswahl15:broker,agent,seller,business
 Antwort15:broker
+
+Frage10:Welcher englische Begriff passt zum Wort "Zuschlag"?
+Auswahl10:gift,cost,surcharge,suplly
+Antwort10:sparrow
+
+Frage11:Welcher englische Begriff passt zum Wort "Hypothek"?
+Auswahl11:shareholder,transfer,income,mortgage
+Antwort11:mortgage
+
+Frage12:Welcher englische Begriff passt zum Wort "Fianzvorstand"?
+Auswahl12:CFO,CTO,CEO,CBO
+Antwort12:CFO
+
+Frage13:Welcher englische Begriff passt zum Wort "Jahresremte"?
+Auswahl13:actuary,annuity,agreement,deposit
+Antwort13:annuity
+
+Frage14:Welcher englische Begriff passt zum Wort "Werbung"?
+Auswahl14:media,appreciation,poster,advertising
+Antwort14:advertising
+
+Frage15:Welcher englische Begriff passt zum Wort "Markler"?
+Auswahl15:broker,agent,seller,business
+Antwort15:broker
+
