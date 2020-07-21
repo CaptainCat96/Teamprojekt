@@ -25,7 +25,11 @@ public class FensterHighscore extends JFrame {
 	 * Create the frame.
 	 * @param anzahlRichtigeAntworten 
 	 */
-	public FensterHighscore(int anzahlRichtigeAntworten) {
+	int AnzahlRichtigeAntworten;
+	int MaxAnzahlFragen;
+	public FensterHighscore(int anzahlRichtigeAntworten,int maxAnzahlFragen) {
+		AnzahlRichtigeAntworten= anzahlRichtigeAntworten;
+		MaxAnzahlFragen=maxAnzahlFragen;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -110,8 +114,10 @@ public class FensterHighscore extends JFrame {
 	public String Motivation(){
 		
 		
-		double Prozent=(1/10);
-		
+		double Prozent = AnzahlRichtigeAntworten ;
+//		System.out.println(Prozent);
+		Prozent= Prozent/MaxAnzahlFragen;
+//		System.out.println(Prozent);		
 		
 		if (Prozent == 0){
 			return ("Du kannst nur besser werden!");
@@ -120,7 +126,7 @@ public class FensterHighscore extends JFrame {
 			return ("Das wird langsam aber sicher, nur nicht aufgeben!");
 		}
 		if(Prozent <= 0.3) {
-			return ("Es ist noch kein Meister vom Himmel gefallen. Immer flei§ig am Ball bleiben");
+			return ("Es ist noch kein Meister vom Himmel gefallen. Immer fleiÂ§ig am Ball bleiben");
 		}
 		if(Prozent <= 0.5) {
 			return ("Sehr gut immer weiter machen!");
@@ -129,10 +135,10 @@ public class FensterHighscore extends JFrame {
 			return ("Prima du wirst immer besser!");
 		}
 		if(Prozent <= 0.98) {
-			return ("Das kann sich sehen lassen! Mal gucken ob du es beim nŠchsten mal auch schaffst!");
+			return ("Das kann sich sehen lassen! Mal gucken ob du es beim nÅ chsten mal auch schaffst!");
 		}
 		else  {
-			return ("Alles Richtig gemacht , NŠchstes mal bringst du mir was bei :D");
+			return ("Alles Richtig gemacht , NÅ chstes mal bringst du mir was bei :D");
 		}
 	}
 
