@@ -269,7 +269,7 @@ public class Run extends JFrame implements ActionListener {
 
 	public void starte_FensterHighscore() {
 		System.out.println("Create Highscore");
-		Highscore = new FensterHighscore(AnzahlRichtigeAntworten);
+		Highscore = new FensterHighscore(AnzahlRichtigeAntworten,maxAnzahlFragen);
 		allePanelsSchließen();
 		this.add(Highscore.contentPane);
 		if (ersteIterationFuerHighscore) {
