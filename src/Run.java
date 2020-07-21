@@ -1,5 +1,6 @@
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import java.io.File;
 import javax.sound.sampled.AudioInputStream;
@@ -206,8 +207,15 @@ public class Run extends JFrame implements ActionListener {
 			Startmenue.rdbtnTonAus.addActionListener(this);
 			ersteIterationFuerStartmenue = false;
 		}
+		setColor(Startmenue.contentPane);
 
 	}
+	
+	private void setColor(JPanel panel) {
+		if (Einstellungen.color != null) {
+			panel.setBackground(Einstellungen.color);
+		   }
+		}
 
 	boolean ersteIterationFuerSpiel = true;
 	FensterSpiel Spiel = new FensterSpiel();
@@ -238,6 +246,7 @@ public class Run extends JFrame implements ActionListener {
 		} else {
 			System.err.println("Keine Datei für Lerneinheit " + lernEinheit);
 		}
+		setColor(Spiel.contentPane);
 	}
 
 	boolean ersteIterationFuerSpielerprofil = true;// Operationen wie action Listener nur einmal ausführen!
@@ -252,6 +261,7 @@ public class Run extends JFrame implements ActionListener {
 			ersteIterationFuerSpielerprofil = false;
 		}
 		this.setVisible(true);
+		setColor(Spielerprofil.contentPane);
 	}
 
 	boolean ersteIterationFuerHighscore = true;// Operationen wie action Listener nur einmal ausführen!
@@ -268,6 +278,7 @@ public class Run extends JFrame implements ActionListener {
 		}
 		this.setVisible(true);
 		// ActionListener
+		setColor(Highscore.contentPane);
 
 	}
 

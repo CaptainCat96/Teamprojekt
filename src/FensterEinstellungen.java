@@ -24,6 +24,7 @@ public class FensterEinstellungen extends JFrame{
 	public void setWindowDimension(int x1, int y1, int x2, int y2) {
 		setBounds(x1, y1, x2, y2);
 	}
+	public Color color;
 	
 	/**
 	 * Create the frame.
@@ -92,24 +93,25 @@ public class FensterEinstellungen extends JFrame{
 					}
 					public void popupMenuWillBecomeInvisible(PopupMenuEvent arg0) {
 						String Colorselected=(String) ComClourss.getSelectedItem();
-						if(Colorselected == "Rot") {
+						if(Colorselected.equals("Rot")) {
 							contentPane.setBackground(Color.RED);
 						}	
-						else if	(Colorselected == "Grün") {
+						else if	(Colorselected.equals("Grün")) {
 							contentPane.setBackground(Color.GREEN);
 						}
-						else if (Colorselected == "Gelb") {
+						else if (Colorselected.equals("Gelb")) {
 							contentPane.setBackground(Color.YELLOW);
 						}
-						else if (Colorselected == "Weiß") {
+						else if (Colorselected.equals("Weiß")) {
 							contentPane.setBackground(Color.WHITE);
 						}
-						else if (Colorselected == "Blau") {
+						else if (Colorselected.equals("Blau")) {
 							contentPane.setBackground(Color.BLUE);
 						}
-						else if (Colorselected == "Pink") {
+						else if (Colorselected.equals("Pink")) {
 							contentPane.setBackground(Color.PINK);
 						}
+						color = contentPane.getBackground();
 					}
 					public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
 					}
