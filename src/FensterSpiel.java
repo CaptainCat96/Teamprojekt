@@ -1,9 +1,10 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 
-import java.awt.Color;
+//import javafx.scene.paint.Color;
+
+import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JLabel;
 import java.awt.Toolkit;
@@ -38,7 +39,6 @@ public class FensterSpiel extends JFrame {
 	public void setWindowDimension(int x1, int y1, int x2, int y2) {
 		setBounds(x1, y1, x2, y2);
 	}
-
 	/**
 	 * Create the frame.
 	 */

@@ -25,12 +25,14 @@ public class Daten {
 		 * Test Data
 		 */
 
-		VerfuegbareLerneinheiten.put("1Englisch","ExerciseEnglischTiere.txt"); 
-		VerfuegbareLerneinheiten.put("2 Englisch","ExerciseBusinessEnglisch.txt");
-		VerfuegbareLerneinheiten.put("3 Spanisch","ExerciseEspanolBasics.txt");
-		VerfuegbareLerneinheiten.put("4 Spanisch","ExerciseEspanolBasic2.txt");
-		VerfuegbareLerneinheiten.put("5 Tuerkisch","ExerciseTuerkishBasics.txt");
-		VerfuegbareLerneinheiten.put("6 Tuerkisch","ExerciseTuerkishBasics.txt2");
+		VerfuegbareLerneinheiten.put("Englisch/Tiere/15","ExerciseEnglischTiere.txt"); 
+		VerfuegbareLerneinheiten.put("Englisch/Business/15","ExerciseBusinessEnglisch.txt");
+		VerfuegbareLerneinheiten.put("Spanisch/mittel/15","ExerciseEspanolBasics.txt");
+		VerfuegbareLerneinheiten.put("Spanisch/leicht/15","ExerciseEspanolBasic2.txt");
+		VerfuegbareLerneinheiten.put("Türkisch/leicht/15","ExerciseTuerkishBasics.txt");
+		VerfuegbareLerneinheiten.put("Türkisch/mittel/15","ExerciseTuerkishBasics.txt2");
+		VerfuegbareLerneinheiten.put("Klingonisch/leicht/15", "Klingonischleicht15.txt");
+		VerfuegbareLerneinheiten.put("Klingonisch/mittel/30", "Klingonischmittel30.txt");
 		//VerfuegbareLerneinheiten[3]="Italienisch 1"; 
 	}
 	

@@ -1,0 +1,59 @@
+Frage1:Welches Wort ist die Übersetzung für "sitzen"
+;Auswahl1:ba',baS,baj,baH
+;Antwort1:ba'
+
+;Frage2:Welches Wort ist die Übersetzung für "verlieren"?
+;Auswahl2:DaSpu',jolpa,chIl,Huch
+;Antwort2:chIl
+
+;Frage3:Welches Wort ist die Übersetzung für "Käfer"?
+;Auswahl3:ngech,largh,ghew,muv
+;Antwort3:ghew
+
+;Frage4:Welches Wort ist die Übersetzung für "Geruch"?
+;Auswahl4:pIw,pIvlob,rol,SeH
+;Antwort4:pIw
+
+;Frage5:Welches Wort ist die Übersetzung für "Gehirn"?
+;Auswahl5:yav,yab,yach,yaS
+;Antwort5:yab
+
+;Frage6:Welches Wort ist die Übersetzung für "Gürtel"?
+;Auswahl6:luH,mISmoH,mong,qogh
+;Antwort6:qogh
+
+;Frage7:Welches Wort ist die Übersetzung für "Befehl"?
+;Auswahl7:ra',quvmoH,tlho',jot
+;Antwort7:ra'
+
+;Frage8:Welches Wort ist die Übersetzung für "Flagge"?
+;Auswahl8:rop,chon,joqwI',Don
+;Antwort8:joqwI'
+
+;Frage9:Welches Wort ist die Übersetzung für "Tempel"?
+;Auswahl9:chIrgh ,cho',pung,toS
+;Antwort9:chIrgh 
+
+;Frage10:Welches Wort ist die Übersetzung für "Schnee"?
+;Auswahl10:peHagh,peD,tIrmey,yaj
+;Antwort10:peD
+
+;Frage11:Welches Wort ist die Übersetzung für "Flügel"?
+;Auswahl11:tel,puch,poghmey,noch
+;Antwort11:tel
+
+;Frage12:Welcher spanische Begriff passt zum Wort "Dieb"?
+;Auswahl12:lIm,SID,nIQ,nIHwI'
+;Antwort12:nIHwI'
+
+;Frage13:Welches Wort ist die Übersetzung für "Reiter"?
+;Auswahl13:lIghwI',Dup,chompu',batlh
+;Antwort13:lIghwI'
+
+;Frage14:Welches Wort ist die Übersetzung für "Duell"?
+;Auswahl14:Hal,Hay',ngech,tlhIchwI'
+;Antwort14:Hay'
+
+;Frage15:Welches Wort ist die Übersetzung für "Klingonen"?
+;Auswahl15:tlhInganpu',toDbaj,tuj,toy'wIa'
+;Antwort15:tlhInganpu'

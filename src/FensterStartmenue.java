@@ -15,6 +15,8 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public class FensterStartmenue extends javax.swing.JFrame {
@@ -100,6 +102,7 @@ public class FensterStartmenue extends javax.swing.JFrame {
 
 		AuswahlLerneinheit = new JComboBox<String>();
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
+		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox.gridx = 1;
 		gbc_comboBox.gridy = 3;
@@ -108,6 +111,10 @@ public class FensterStartmenue extends javax.swing.JFrame {
 
 
 		btnDeinProfil = new JButton("Dein Profil");
+		btnDeinProfil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		GridBagConstraints gbc_btnDeinProfil = new GridBagConstraints();
 		gbc_btnDeinProfil.anchor = GridBagConstraints.NORTH;
 		gbc_btnDeinProfil.insets = new Insets(0, 0, 5, 0);

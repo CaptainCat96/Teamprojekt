@@ -1,3 +1,4 @@
+  
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -22,9 +23,9 @@ import java.awt.Insets;
 
 public class FensterLogin extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField nameInput;
-	private JPasswordField passwordInput;
+	public JPanel contentPane;
+	public JTextField nameInput;
+	public JPasswordField passwordInput;
 	
 
     /**
@@ -207,5 +208,4 @@ public class FensterLogin extends JFrame {
 		return contentPane;
 	}
     }
-
 

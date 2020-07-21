@@ -1,0 +1,119 @@
+Frage1:Welches Wort ist die Übersetzung für "Tunnel"
+;Auswahl1:'och,'o','oH,'ol
+;Antwort1:'och
+
+;Frage2:Welches Wort ist die Übersetzung für "Photon"?
+;Auswahl2:DaSpu',otlh,chIl,Huch
+;Antwort2:otlh
+
+;Frage3:Welches Wort ist die Übersetzung für "Lasergeschütz"?
+;Auswahl3:'uD'a',largh,ghew,muv
+;Antwort3:'uD'a'
+
+;Frage4:Welches Wort ist die Übersetzung für "niederdrücken"?
+;Auswahl4:pIw,pIvlob,'uy,SeH
+;Antwort4:'uy
+
+;Frage5:Welches Wort ist die Übersetzung für "Konflikt"?
+;Auswahl5:yav,yol,yach,yaS
+;Antwort5:yol
+
+;Frage6:Welches Wort ist die Übersetzung für "Sauerstoff"?
+;Auswahl6:yInSIp,mISmoH,mong,qogh
+;Antwort6:yInSIp
+
+;Frage7:Welches Wort ist die Übersetzung für "Organismus"?
+;Auswahl7:ra',yagh,tlho',jot
+;Antwort7:yagh
+
+;Frage8:Welches Wort ist die Übersetzung für "Mythos"?
+;Auswahl8:rop,wIch,joqwI',Don
+;Antwort8:wIch
+
+;Frage9:Welches Wort ist die Übersetzung für "Schubkraft"?
+;Auswahl9:chIrgh ,cho',pung,vIj
+;Antwort9:vIj
+
+;Frage10:Welches Wort ist die Übersetzung für "Kriegsschiffe"?
+;Auswahl10:veSDujmey,peD,tIrmey,yaj
+;Antwort10:veSDujmey
+
+;Frage11:Welches Wort ist die Übersetzung für "aufwecken"?
+;Auswahl11:tel,puch,vemmoH,noch
+;Antwort11:vemmoH
+
+;Frage12:Welcher spanische Begriff passt zum Wort "begrüßen"?
+;Auswahl12:lIm,van,nIQ,nIHwI'
+;Antwort12:van
+
+;Frage13:Welches Wort ist die Übersetzung für "Tapferkeit"?
+;Auswahl13:lIghwI',toDuj,chompu',batlh
+;Antwort13:toDuj
+
+;Frage14:Welches Wort ist die Übersetzung für "bitten"?
+;Auswahl14:tlhob,ngech,tlhIchwI'
+;Antwort14:tlhob
+
+;Frage15:Welches Wort ist die Übersetzung für "Kraftfeld"?
+;Auswahl15:tlhInganpu',toDbaj,tuj,Surchem
+;Antwort15:Surchem
+
+Frage16:Welches Wort ist die Übersetzung für "besuchen"
+;Auswahl16:Such,baS,baj,baH
+;Antwort16:ba'
+
+;Frage17:Welches Wort ist die Übersetzung für "Krankenhaus"?
+;Auswahl17:DaSpu',jolpa,chIl,ropyaH
+;Antwort17:ropyaH
+
+;Frage18:Welches Wort ist die Übersetzung für "Ehre"?
+;Auswahl18:ngech,largh,ghew,muv
+;Antwort18:ghew
+
+;Frage19:Welches Wort ist die Übersetzung für "Erbschaft"?
+;Auswahl19:pIw,quvmoH,rol,
+;Antwort19:quvmoH
+
+;Frage20:Welches Wort ist die Übersetzung für "Gehirn"?
+;Auswahl20:yav,qum,yach,quH
+;Antwort20:quH
+
+;Frage21:Welches Wort ist die Übersetzung für "Roboter"?
+;Auswahl21:luH,mISmoH,qoq,qogh
+;Antwort21:qoq
+
+;Frage22:Welches Wort ist die Übersetzung für "Toiletten"?
+;Auswahl22:ra',puchmeytlho',jot
+;Antwort22:puchmey
+
+;Frage23:Welches Wort ist die Übersetzung für "Flagge"?
+;Auswahl23:rop,chon,joqwI',Don
+;Antwort23:joqwI'
+
+;Frage24:Welches Wort ist die Übersetzung für "Tempel"?
+;Auswahl24:chIrgh ,cho',pung,toS
+;Antwort24:chIrgh 
+
+;Frage25:Welches Wort ist die Übersetzung für "Schnee"?
+;Auswahl25:peHagh,peD,tIrmey,yaj
+;Antwort25:peD
+
+;Frage26:Welches Wort ist die Übersetzung für "plötzlich"?
+;Auswahl26:tel,puch,poghmey,pay
+;Antwort26:pay
+
+;Frage27:Welcher spanische Begriff passt zum Wort "Kunststoffe"?
+;Auswahl27:lIm,nuch,nIQ,mepmey
+;Antwort27:mepmey
+
+;Frage28:Welches Wort ist die Übersetzung für "Schlachtordnung"?
+;Auswahl28:lIghwI',Dup,nol,may'morgh
+;Antwort28:may'morgh
+
+;Frage29:Welches Wort ist die Übersetzung für "Mondnacht"?
+;Auswahl29:Hal,Hay',ngech,maSram
+;Antwort29:maSram
+
+;Frage30:Welches Wort ist die Übersetzung für "Armee"?
+;Auswahl30:tlhInganpu',toDbaj,tuj,mangghom
+;Antwort30:mangghom
