@@ -44,7 +44,6 @@ public class Run extends JFrame implements ActionListener {
 	}
 
 	public Run() {
-		// playAudio();
 		starte_FensterLogin();
 		// starte_FensterStartmenue();
 		this.setWindowDimension(WindowSizeX1, WindowSizeY1, WindowSizeX2, WindowSizeY2);
@@ -105,14 +104,16 @@ public class Run extends JFrame implements ActionListener {
 
 			if (Startmenue.rdbtnTonAus.isSelected() == false) {
 				System.out.println("Resume playing Audio");
-				playAudio();
+				// playAudio();
+				playRandomAudio();
 			} else {
 				System.out.println("Stop Playing Audio");
 				this.stopAudio();
 			}
 		}
 		if (e.getSource() == Startmenue.btnZumSpiel) {
-			starte_FensterSpiel(Startmenue.holeAusgewaehltesSpiel());
+			Restart();
+			starte_FensterSpiel();
 		}
 		if (e.getSource() == Startmenue.btnDeinProfil) {
 			starte_Spielerprofil();
@@ -127,7 +128,7 @@ public class Run extends JFrame implements ActionListener {
 			}
 			if (e.getSource() == Spiel.buttonBack) {
 				System.out.println("beende spiel");
-				allePanelsSchließen();
+				allePanelsSchliessen();
 				starte_FensterStartmenue();
 			}
 		} catch (Exception e4) {
@@ -136,22 +137,22 @@ public class Run extends JFrame implements ActionListener {
 
 		// FensterSpielerprofil
 		if (e.getSource() == Spielerprofil.buttonback) {
-			allePanelsSchließen();
+			allePanelsSchliessen();
 			starte_FensterStartmenue();
 		}
+		// FensterHighscore
 		try {
-			// FensterHighscore
 			if (e.getSource() == Highscore.btnZurckZumMen) {
-				allePanelsSchließen();
+				allePanelsSchliessen();
 				starte_FensterStartmenue();
 			}
 		} catch (Exception e2) {
-			// Fenster noch nicht konstuiert
+			System.out.println("Execpt 2");
 		}
 
 		// FensterEinstellungen
 		if (e.getSource() == Einstellungen.buttonBack) {
-			allePanelsSchließen();
+			allePanelsSchliessen();
 			starte_FensterStartmenue();
 
 		}
@@ -162,7 +163,7 @@ public class Run extends JFrame implements ActionListener {
 	 * #############################################################################
 	 * ###### Fenster Logik
 	 */
-	public void allePanelsSchließen() {
+	public void allePanelsSchliessen() {
 		try {
 			this.remove(login.contentPane);
 			this.remove(Startmenue.contentPane);
@@ -183,7 +184,7 @@ public class Run extends JFrame implements ActionListener {
 
 	public void starte_FensterLogin() {
 		System.out.println("Create Login");
-		allePanelsSchließen();
+		allePanelsSchliessen();
 		this.add(login.contentPane);
 		this.setVisible(true);
 		login.btnLogin.addActionListener(this);
@@ -193,10 +194,14 @@ public class Run extends JFrame implements ActionListener {
 
 	boolean ersteIterationFuerStartmenue = true;
 	FensterStartmenue Startmenue = new FensterStartmenue(daten);
-
 	public void starte_FensterStartmenue() {
+		//playAudio();
+		if(isAudioPlaying==false) {
+			playRandomAudio();
+		}
+		
 		System.out.println("Create Startmenue");
-		allePanelsSchließen();
+		allePanelsSchliessen();
 		this.add(Startmenue.contentPane);
 		this.setVisible(true);
 		if (ersteIterationFuerStartmenue) {
@@ -210,19 +215,22 @@ public class Run extends JFrame implements ActionListener {
 		setColor(Startmenue.contentPane);
 
 	}
-	
+
 	private void setColor(JPanel panel) {
 		if (Einstellungen.color != null) {
 			panel.setBackground(Einstellungen.color);
-		   }
 		}
+	}
 
 	boolean ersteIterationFuerSpiel = true;
 	FensterSpiel Spiel = new FensterSpiel();
 
-	public void starte_FensterSpiel(String lernEinheit) {
+	String lerneinheit;
+
+	public void starte_FensterSpiel() {
+		lerneinheit = Startmenue.holeAusgewaehltesSpiel();
 		System.out.println("Create Spiel");
-		allePanelsSchließen();
+		allePanelsSchliessen();
 		this.add(Spiel.contentPane);
 		this.setVisible(true);
 
@@ -236,15 +244,20 @@ public class Run extends JFrame implements ActionListener {
 		 * Spiel.btnNext.addActionListener(this);
 		 * Spiel.buttonBack.addActionListener(this); ersteIterationFuerSpiel=false; }
 		 */
+		ladeLerneinheit();
 
-		String dateiname = daten.getFilenameForLerneinheit(lernEinheit);
+	}
+
+	public void ladeLerneinheit() {
+		System.out.println("Lade Lerneinheit");
+		String dateiname = daten.getFilenameForLerneinheit(lerneinheit);
 		if (dateiname != null) {
 			System.out.println("Lade Spieldaten: " + "src\\Lerneinheiten\\" + dateiname);
 			daten.loadTxtFile("src\\Lerneinheiten\\" + dateiname);
 			// daten.loadTxtFile("src/Lerneinheiten/" + dateiname);
 			GameWindow_nextQuestion();// erste Frage einblenden
 		} else {
-			System.err.println("Keine Datei für Lerneinheit " + lernEinheit);
+			System.err.println("Keine Datei für Lerneinheit " + lerneinheit);
 		}
 		setColor(Spiel.contentPane);
 	}
@@ -254,7 +267,7 @@ public class Run extends JFrame implements ActionListener {
 
 	public void starte_Spielerprofil() {
 		System.out.println("Create Spielerprofil");
-		allePanelsSchließen();
+		allePanelsSchliessen();
 		this.add(Spielerprofil.contentPane);
 		if (ersteIterationFuerSpielerprofil) {
 			Spielerprofil.buttonback.addActionListener(this);
@@ -269,8 +282,8 @@ public class Run extends JFrame implements ActionListener {
 
 	public void starte_FensterHighscore() {
 		System.out.println("Create Highscore");
-		Highscore = new FensterHighscore(AnzahlRichtigeAntworten,maxAnzahlFragen);
-		allePanelsSchließen();
+		Highscore = new FensterHighscore(AnzahlRichtigeAntworten, maxAnzahlFragen);
+		allePanelsSchliessen();
 		this.add(Highscore.contentPane);
 		if (ersteIterationFuerHighscore) {
 			Highscore.btnZurckZumMen.addActionListener(this);
@@ -287,7 +300,7 @@ public class Run extends JFrame implements ActionListener {
 
 	public void starte_FensterEinstellungen() {
 		System.out.println("Create Einstellungen");
-		allePanelsSchließen();
+		allePanelsSchliessen();
 		this.add(Einstellungen.contentPane);
 
 		this.setVisible(true);
@@ -306,11 +319,31 @@ public class Run extends JFrame implements ActionListener {
 	 */
 	// Variablen
 	int aktuelleFrageIndex = 0;
-	int maxAnzahlFragen = daten.maxAnzahl;
+	int maxAnzahlFragen = daten.getMaxAnzahlFragen();
 	String userAntwort, Loesung;
 	// Variablen f�r Highscore statistiken
 	int AnzahlFalscheAntworten = 0;
 	int AnzahlRichtigeAntworten = 0;
+
+	public void Restart() {
+		System.out.println("Restart");
+		daten = new Daten();// Reset Data Class
+		ladeLerneinheit();
+		Spiel.lblNameLerneinheit.setText("Aktuelle Lerneinheit: " + Startmenue.holeAusgewaehltesSpiel());
+		aktuelleFrageIndex = 0;
+		maxAnzahlFragen = daten.getMaxAnzahlFragen();
+		String userAntwort, Loesung;
+		// Variablen f�r Highscore statistiken
+		AnzahlFalscheAntworten = 0;
+		AnzahlRichtigeAntworten = 0;
+		// Reset Daten
+		daten.Namen = new String[daten.maxAnzahl];
+		daten.Fragen = new String[daten.maxAnzahl];
+		daten.Antworten = new String[daten.maxAnzahl];
+		daten.AntwortAlternativen = new String[daten.maxAnzahl][daten.maxAntwortAlternativen];
+		// Reset Spiel
+		Spiel.progressBar.setValue(0);
+	}
 
 	public void GameWindow_nextQuestion() {
 		System.out.println("aktuelleFrageIndex " + aktuelleFrageIndex);
@@ -398,21 +431,63 @@ public class Run extends JFrame implements ActionListener {
 	// File track1 = new File("enemy_missle.mp3");
 	Clip Audio;
 	AudioInputStream audioIn;
+	boolean isAudioPlaying=false;
+	public void playRandomAudio() {
+		stopAudio();
+		int AnzahlTracks = 5;
+		int random = (int) (Math.random() * AnzahlTracks) + 1;
+		System.out.println("Play Track " + random);
+		try {
+			// Menu Music
+			switch (random) {
+			case 1:
+				audioIn = AudioSystem.getAudioInputStream(Run.class.getResource("TRACK1.wav"));
+				break;
+			case 2:
+				audioIn = AudioSystem.getAudioInputStream(Run.class.getResource("TRACK2.wav"));
+				break;
+			case 3:
+				audioIn = AudioSystem.getAudioInputStream(Run.class.getResource("TRACK3.wav"));
+				break;
+			case 4:
+				audioIn = AudioSystem.getAudioInputStream(Run.class.getResource("TRACK4.wav"));
+				break;
+			case 5:
+				audioIn = AudioSystem.getAudioInputStream(Run.class.getResource("TRACK5.wav"));
+				break;
+			}
+			// audioIn =
+			// AudioSystem.getAudioInputStream(Run.class.getResource("TRACK2.wav"));
+			Audio = AudioSystem.getClip();
+			Audio.open(audioIn);
+			Audio.start();
+			isAudioPlaying=true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 
 	public void playAudio() {
 		try {
 			// Menu Music
-			audioIn = AudioSystem.getAudioInputStream(Run.class.getResource("TRACK1.wav"));
+			audioIn = AudioSystem.getAudioInputStream(Run.class.getResource("TRACK2.wav"));
 			Audio = AudioSystem.getClip();
 			Audio.open(audioIn);
 			Audio.start();
+			isAudioPlaying=true;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
 
 	public void stopAudio() {
-		Audio.stop();
+		try {
+			Audio.stop();
+			isAudioPlaying=false;
+		}catch(Exception e) {
+			System.out.println("No Audio to stop.");
+		}
+		
 	}
 
 }
