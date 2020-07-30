@@ -126,7 +126,7 @@ public class FensterHighscore extends JFrame {
 			return ("Das wird langsam aber sicher, nur nicht aufgeben!");
 		}
 		if(Prozent <= 0.3) {
-			return ("Es ist noch kein Meister vom Himmel gefallen. Immer flei§ig am Ball bleiben");
+			return ("Es ist noch kein Meister vom Himmel gefallen. Immer flei\u00DFig am Ball bleiben");
 		}
 		if(Prozent <= 0.5) {
 			return ("Sehr gut immer weiter machen!");
@@ -135,10 +135,10 @@ public class FensterHighscore extends JFrame {
 			return ("Prima du wirst immer besser!");
 		}
 		if(Prozent <= 0.98) {
-			return ("Das kann sich sehen lassen! Mal gucken ob du es beim nŠchsten mal auch schaffst!");
+			return ("Das kann sich sehen lassen! Mal gucken ob du es beim n\u00E4chsten mal auch schaffst!");
 		}
 		else  {
-			return ("Alles Richtig gemacht , NŠchstes mal bringst du mir was bei :D");
+			return ("Alles Richtig gemacht , N�chstes mal bringst du mir was bei :D");
 		}
 	}
 

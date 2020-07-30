@@ -39,7 +39,7 @@ public class FensterLogin extends JFrame {
     JButton btnRegister;
 	
 	
-	private final String ACCOUNT_FILENAME = "Lerneinheiten/accounts.txt";
+	private final String ACCOUNT_FILENAME = "accounts.txt";
 	    //private final String ACCOUNT_FILENAME = "src\\Lerneinheiten\\accounts.txt";
 	
 

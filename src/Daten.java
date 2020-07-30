@@ -32,12 +32,14 @@ public class Daten {
 		VerfuegbareLerneinheiten.put("Türkisch/leicht/15","ExerciseTuerkishBasics.txt");
 		VerfuegbareLerneinheiten.put("Türkisch/mittel/15","ExerciseTuerkishBasics.txt2");
 		VerfuegbareLerneinheiten.put("Klingonisch/leicht/15", "Klingonischleicht15.txt");
-		VerfuegbareLerneinheiten.put("Klingonisch/mittel/30", "Klingonischmittel30.txt");
+		VerfuegbareLerneinheiten.put("Klingonisch/mittel/30", "Klingolischmittel30.txt");
 		//VerfuegbareLerneinheiten[3]="Italienisch 1"; 
 	}
-	
-	// Variablen vor Load Txt
-	int maxAnzahl = 20;
+	/**
+	 * Maximale Anzahl der Fragen.
+	 * Standard:20
+	 */
+	int maxAnzahl = 100;
 	int maxAntwortAlternativen = 5;
 	String[] Namen = new String[maxAnzahl];
 	String[] Fragen = new String[maxAnzahl];
@@ -58,6 +60,16 @@ public class Daten {
 			// System.out.println("Speicherstelle " + i + " : " + input[i]);
 			i++;
 		}
+	}
+	public int getMaxAnzahlFragen() {
+		int i;
+		for(i=0;i<Fragen.length;i++) {
+			if(Fragen[i]==null) {
+				System.out.println("Maximale Anzahl der Fragen erkannt: "+i);
+				return i;
+			}
+		}
+		return i;
 	}
 
 	/**
@@ -258,8 +270,8 @@ public class Daten {
 			return;
 		}
 		System.out.println("Loading Successful:");
-		System.out.println(input);
-		// System.out.println("##########################");
+		//System.out.println(input);
+		
 		// ungewollte zeichen und zeilenumbrueche filtern
 		input = CleanData(input);
 		// System.out.println("Cleaned Data :" + input);

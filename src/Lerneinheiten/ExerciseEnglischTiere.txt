@@ -38,7 +38,7 @@ Frage1:Welches Wort ist die Übersetzung für "Frosch"
 ;Auswahl10:swan,sparrow,stork,ostrich
 ;Antwort10:sparrow
 
-;Frage11:Welches Wort ist die Übersetzung für "SchildkrÃ¶te"?
+;Frage11:Welches Wort ist die Übersetzung für "Schildkröte"?
 ;Auswahl11:turtle,crocodile,cottonmouth
 ;Antwort11:turtle
 

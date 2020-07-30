@@ -30,7 +30,7 @@ Frage1:Welches Wort ist die Übersetzung für "schreiben"
 ;Auswahl8:diez,dia,cero,hora
 ;Antwort8:dia
 
-;Frage9:Welches Wort ist die Übersetzung für "MÃ¤rz"?
+;Frage9:Welches Wort ist die Übersetzung für "März"?
 ;Auswahl9:martes,miercoles,marzo,ano
 ;Antwort9:marzo
 
